@@ -5,10 +5,8 @@ import { HeaderLinkType } from "../../../utils/types";
 
 export const HeaderLink = ({ to, text }: HeaderLinkType) => {
   return (
-    <li>
-      <Link className={S.link} to={to}>
-        {text}
-      </Link>
-    </li>
+    <Link className={S.link} to={to}>
+      {text}
+    </Link>
   );
 };

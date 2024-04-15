@@ -1,14 +1,9 @@
 import { SetStateAction, useState } from "react";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../../app/reducers/reduxHooks";
+import { useAppDispatch } from "../../../app/reducers/reduxHooks";
 import { addPetition } from "../../../app/reducers/dataSlice";
 import { closeModal } from "../../../app/reducers/modalSlice";
 
 export const useCreatePetition = () => {
-  const { petitions } = useAppSelector((state) => state.data);
-
   const dispatch = useAppDispatch();
   const [selectedTopic, setSelectedTopic] = useState("default");
   const [customTopic, setCustomTopic] = useState("");
@@ -63,11 +58,8 @@ export const useCreatePetition = () => {
 
     const totalPetition = {
       theme: customTopic || selectedTopic,
-      id: petitions.length + 1,
-      date: new Date().toLocaleDateString("ru-RU"),
       text: text,
       images,
-      finish: false,
     };
     dispatch(addPetition(totalPetition));
     dispatch(closeModal());

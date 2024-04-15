@@ -84,7 +84,14 @@ export const dataSlice = createSlice({
   initialState,
   reducers: {
     addPetition: (state, { payload }) => {
-      state.petitions = [...state.petitions, payload];
+      const newPetition = {
+        ...payload,
+        date: new Date().toLocaleDateString("ru-RU"),
+        id: state.petitions.length + 1,
+        finish: false,
+        chat: [],
+      };
+      state.petitions = [...state.petitions, newPetition];
     },
     toFinishPetition: (state, { payload }) => {
       const petition = state.petitions.find((p) => p.id === payload);

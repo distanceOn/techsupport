@@ -8,8 +8,10 @@ type HeaderListProps = {
 export const HeaderList = ({ elements }: HeaderListProps) => {
   return (
     <ul className={S.links}>
-      {elements.map(({ to, text }) => (
-        <HeaderLink to={to} text={text} />
+      {elements.map(({ to, text }, index) => (
+        <li key={text + index}>
+          <HeaderLink to={to} text={text} />
+        </li>
       ))}
     </ul>
   );

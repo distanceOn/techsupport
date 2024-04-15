@@ -19,7 +19,9 @@ export const PictureList = ({
     <ul>
       {totalPictures ? (
         totalPictures.map((picture, index) => (
-          <Picture src={picture} alt={"Фото " + { index }} />
+          <li key={index}>
+            <Picture src={picture} alt={"Фото " + { index }} />
+          </li>
         ))
       ) : (
         <p>Нет фото</p>

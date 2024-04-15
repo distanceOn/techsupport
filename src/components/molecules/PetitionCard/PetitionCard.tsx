@@ -21,7 +21,7 @@ export const PetitionCard = ({
     navigate(`/tickets/${id}`);
   };
   return (
-    <li onClick={goToPetition} className={S.card}>
+    <div onClick={goToPetition} className={S.card}>
       <div className={`${S.info} ${finish ? S.finish_true : S.finish_false}`}>
         <h4>{id}</h4>
         <h3>{theme}</h3>
@@ -33,6 +33,6 @@ export const PetitionCard = ({
       <div className={S.icon}>
         <Icon type="arrow" />
       </div>
-    </li>
+    </div>
   );
 };
