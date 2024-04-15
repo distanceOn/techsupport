@@ -1,7 +1,7 @@
-import { Provider } from 'react-redux';
-import AppRoutes from './AppRoutes';
-import './styles/global.scss';
-import { appStore } from './AppStore';
+import { Provider } from "react-redux";
+import AppRoutes from "./routes/AppRoutes";
+import "./styles/global.scss";
+import { appStore } from "./AppStore";
 
 function App() {
   return (
