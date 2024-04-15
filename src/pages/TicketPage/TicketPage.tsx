@@ -6,10 +6,14 @@ import { Chat } from "../../components/organisms/Chat/Chat";
 
 export const PetitionPage = () => {
   const { id } = useParams();
+  const totalId = Number(id);
   return (
     <DefaultTemplate
       content={
-        <InfoTemplate info={<InfoPetition id={id} />} chat={<Chat id={id} />} />
+        <InfoTemplate
+          info={<InfoPetition id={totalId} />}
+          chat={<Chat id={totalId} />}
+        />
       }
     />
   );

@@ -1,4 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+
+type ChatMessage = {
+  sender: string;
+  message: string;
+  timestamp: string;
+};
 
 type Petition = {
   theme: string;
@@ -7,6 +13,7 @@ type Petition = {
   text: string;
   images: string[];
   finish: boolean;
+  chat: ChatMessage[];
 };
 
 type DataSlice = {
@@ -24,6 +31,13 @@ const initialState: DataSlice = {
         "https://fastly.picsum.photos/id/4/5000/3333.jpg?hmac=ghf06FdmgiD0-G4c9DdNM8RnBIN7BO0-ZGEw47khHP4",
       ],
       finish: true,
+      chat: [
+        {
+          sender: "user",
+          message: "How do we resolve this?",
+          timestamp: "10:00 AM",
+        },
+      ],
     },
     {
       theme: "Спорт",
@@ -36,6 +50,13 @@ const initialState: DataSlice = {
         "https://fastly.picsum.photos/id/4/5000/3333.jpg?hmac=ghf06FdmgiD0-G4c9DdNM8RnBIN7BO0-ZGEw47khHP4",
       ],
       finish: false,
+      chat: [
+        {
+          sender: "user",
+          message: "How do we resolve this?",
+          timestamp: "10:00 AM",
+        },
+      ],
     },
     {
       theme: "Спорт",
@@ -47,6 +68,13 @@ const initialState: DataSlice = {
         "https://fastly.picsum.photos/id/4/5000/3333.jpg?hmac=ghf06FdmgiD0-G4c9DdNM8RnBIN7BO0-ZGEw47khHP4",
       ],
       finish: false,
+      chat: [
+        {
+          sender: "user",
+          message: "How do we resolve this?",
+          timestamp: "10:00 AM",
+        },
+      ],
     },
   ],
 };
@@ -58,9 +86,18 @@ export const dataSlice = createSlice({
     addPetition: (state, { payload }) => {
       state.petitions = [...state.petitions, payload];
     },
+    addChatMessage: (
+      state,
+      action: PayloadAction<{ id: number; message: ChatMessage }>
+    ) => {
+      const petition = state.petitions.find((p) => p.id === action.payload.id);
+      if (petition) {
+        petition.chat.push(action.payload.message);
+      }
+    },
   },
 });
 
-export const { addPetition } = dataSlice.actions;
+export const { addPetition, addChatMessage } = dataSlice.actions;
 
 export const dataReducer = dataSlice.reducer;

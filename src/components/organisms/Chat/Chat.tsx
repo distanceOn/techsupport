@@ -1,4 +1,42 @@
-export const Chat = ({ id }: { id: string | undefined }) => {
+import React, { useState } from "react";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../app/reducers/reduxHooks";
+import { addChatMessage } from "../../../app/reducers/dataSlice";
+
+type ChatProps = {
+  id: number;
+};
+
+export const Chat = ({ id }: ChatProps) => {
+  const dispatch = useAppDispatch();
+  const petition = useAppSelector((state) =>
+    state.data.petitions.find((p) => p.id === id)
+  );
+
+  const [message, setMessage] = useState("");
+
+  const handleTyping = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setMessage(event.target.value);
+  };
+
+  const handleSend = () => {
+    dispatch(
+      addChatMessage({
+        id,
+        message: {
+          sender: "user2",
+          message,
+          timestamp: new Date().toLocaleDateString("ru-RU"),
+        },
+      })
+    );
+    setMessage("");
+  };
+
   return (
     <div>
       <div>
@@ -6,11 +44,18 @@ export const Chat = ({ id }: { id: string | undefined }) => {
         <h4>Чат обращения {id}</h4>
       </div>
 
-      <div>чатикчатиксообщения</div>
+      <div>
+        {petition?.chat.map((msg, idx) => (
+          <p key={idx}>
+            <strong>{msg.sender}:</strong> {msg.message} <br />
+            {msg.timestamp}
+          </p>
+        ))}
+      </div>
 
       <div>
-        <input type="text" />
-        <button>отправить</button>
+        <input value={message} onChange={handleTyping} type="text" />
+        <button onClick={handleSend}>отправить</button>
       </div>
     </div>
   );

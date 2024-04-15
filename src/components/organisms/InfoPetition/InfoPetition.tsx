@@ -1,6 +1,6 @@
 import { PictureList } from "../../molecules/PictureList/PictureList";
 
-export const InfoPetition = ({ id }: { id: string | undefined }) => {
+export const InfoPetition = ({ id }: { id: number }) => {
   return (
     <div>
       <div>

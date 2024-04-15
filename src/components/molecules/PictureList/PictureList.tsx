@@ -5,14 +5,14 @@ export const PictureList = ({
   id,
   pictures,
 }: {
-  id?: string;
+  id?: number;
   pictures?: string[];
 }) => {
   const { petitions } = useAppSelector((state) => state.data);
 
   const totalPictures =
     id !== undefined
-      ? petitions.find((petition) => petition.id === Number(id))?.images
+      ? petitions.find((petition) => petition.id === id)?.images
       : pictures;
 
   return (
