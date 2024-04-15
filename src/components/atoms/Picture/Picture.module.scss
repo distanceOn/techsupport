@@ -1,0 +1,7 @@
+.picture {
+  width: 100px;
+
+  & img {
+    width: inherit;
+  }
+}

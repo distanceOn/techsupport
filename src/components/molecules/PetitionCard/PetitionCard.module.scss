@@ -1,0 +1,26 @@
+.card {
+  width: 60vw;
+  height: 10vw;
+  display: flex;
+  align-items: center;
+
+  border: 1px solid black;
+  & div {
+    padding: 1vw;
+    height: 100%;
+    border: 1px solid black;
+  }
+}
+
+.text {
+  flex-grow: 1;
+}
+
+.finish {
+  &_true {
+    background-color: #44a94e;
+  }
+  &_false {
+    background-color: #ff0909;
+  }
+}
