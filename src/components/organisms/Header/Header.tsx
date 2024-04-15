@@ -3,8 +3,14 @@ import { Logo } from "../../atoms/Logo/Logo";
 import { HeaderList } from "../../molecules/HeaderList/HeaderList";
 
 import S from "./Header.module.scss";
+import { useAppDispatch } from "../../../app/reducers/reduxHooks";
+import { openModal } from "../../../app/reducers/modalSlice";
 
 export const Header = () => {
+  const dispatch = useAppDispatch();
+  const openCreateModal = () => {
+    dispatch(openModal("create"));
+  };
   const { pathname } = useLocation();
   const isMainPage = pathname === "/";
 
@@ -19,7 +25,11 @@ export const Header = () => {
         <Logo />
       </div>
       <HeaderList elements={elements} />
-      {isMainPage ? <div className={S.logout}>Новое обращение</div> : ""}
+      {isMainPage && (
+        <div onClick={openCreateModal} className={S.logout}>
+          Новое обращение
+        </div>
+      )}
       <div className={S.logout}>выход</div>
     </header>
   );
