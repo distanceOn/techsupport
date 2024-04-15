@@ -3,6 +3,7 @@ import { ProtectedAuth, ProtectedContent } from "./ProtectedRoutes";
 import { MainPage } from "../../pages/MainPage/MainPage";
 import { TicketsPage } from "../../pages/TicketsPage/MainPage";
 import { PetitionPage } from "../../pages/TicketPage/TicketPage";
+import { LoginPage } from "../../pages/LoginPage/LoginPage";
 
 const AppRoutes = () => {
   return (
@@ -13,7 +14,7 @@ const AppRoutes = () => {
         <Route path="/tickets/:id" element={<PetitionPage />} />
       </Route>
       <Route element={<ProtectedAuth />}>
-        <Route path="/login" element={<div>login</div>} />
+        <Route path="/login" element={<LoginPage />} />
       </Route>
     </Routes>
   );
