@@ -20,7 +20,7 @@ export const useCreatePetition = () => {
       const files = Array.from(event.target.files).map((file: File) =>
         URL.createObjectURL(file)
       );
-      setImages(files);
+      setImages([...images, ...files]);
     }
   };
 

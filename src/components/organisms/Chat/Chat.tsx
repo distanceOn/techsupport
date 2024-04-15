@@ -50,7 +50,7 @@ export const Chat = ({ id }: ChatProps) => {
       </div>
 
       <div>
-        {petition?.chat.map((msg, idx) => (
+        {petition?.chat?.map((msg, idx) => (
           <p key={idx}>
             <strong>{msg.sender}:</strong> {msg.message} <br />
             {msg.timestamp}
