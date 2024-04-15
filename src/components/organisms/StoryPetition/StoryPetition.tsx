@@ -1,32 +1,16 @@
+import { useAppSelector } from "../../../app/reducers/reduxHooks";
 import { PetitionCard } from "../../molecules/PetitionCard/PetitionCard";
 
 import S from "./StoryPetition.module.scss";
 
 export const StoryPetition = () => {
-  const elements = [
-    {
-      theme: "Спорт",
-      id: 1,
-      date: "22.02.2024",
-      text: "dnasbdkjdsbfjkljqwebhbwfdsklfdqwjehiuqwiejfdsnfhbewhkqwenjdsbfiqwjeqwnfidf",
-    },
-    {
-      theme: "Спорт",
-      id: 2,
-      date: "22.02.2024",
-      text: "dnasbdkjdsbfjkljqwebhbwfdsklfdqwjehiuqwiejfdsnfhbewhkqwenjdsbfiqwjeqwnfidf",
-    },
-    {
-      theme: "Спорт",
-      id: 2,
-      date: "22.02.2024",
-      text: "dnasbdkjdsbfjkljqwebhbwfdsklfdqwjehiuqwiejfdsnfhbewhkqwenjdsbfiqwjeqwnfidf",
-    },
-  ];
+  const { petitions } = useAppSelector((state) => state.data);
+
+  const reversedPetitions = [...petitions].reverse();
 
   return (
     <ul className={S.story}>
-      {elements.map(({ theme, id, date, text }) => (
+      {reversedPetitions.map(({ theme, id, date, text }) => (
         <PetitionCard theme={theme} id={id} date={date} text={text} />
       ))}
     </ul>

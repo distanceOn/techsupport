@@ -7,16 +7,27 @@ export const CreatePetition = () => {
     handleSelectChange,
     customTopic,
     handleCustomTopicChange,
+    handleCreatePetition,
+    text,
+    handleSetText,
+    error,
   } = useCreatePetition();
   return (
-    <form action="#">
+    <form onSubmit={handleCreatePetition}>
       <Selection
         handleChange={handleSelectChange}
         selectedTopic={selectedTopic}
         customTopic={customTopic}
         handleCustomTopicChange={handleCustomTopicChange}
       />
-      <textarea cols={30} rows={10} />
+      <textarea
+        required
+        value={text}
+        onChange={handleSetText}
+        cols={30}
+        rows={10}
+      />
+      {error && <div style={{ color: "red" }}>{error}</div>}
       <button type="submit">Создать</button>
     </form>
   );

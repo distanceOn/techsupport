@@ -14,7 +14,7 @@ export const Selection = ({
   return (
     <div>
       <h3>Тема:</h3>
-      <select value={selectedTopic} onChange={handleChange}>
+      <select required value={selectedTopic} onChange={handleChange}>
         <option disabled value="default">
           Выберите тему
         </option>
@@ -27,6 +27,7 @@ export const Selection = ({
         <div>
           <label htmlFor="customTopic">Введите вашу тему:</label>
           <input
+            required
             type="text"
             id="customTopic"
             value={customTopic}
