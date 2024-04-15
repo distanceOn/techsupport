@@ -9,6 +9,7 @@ import { getModalByType } from "./utils";
 export const ModalTemplate = () => {
   const dispatch = useAppDispatch();
   const { isOpen, type } = useAppSelector((state) => state.modal);
+
   const onClose = () => {
     dispatch(closeModal());
   };

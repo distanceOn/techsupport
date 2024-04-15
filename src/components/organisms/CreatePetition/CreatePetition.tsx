@@ -1,9 +1,23 @@
+import { Selection } from "../../molecules/Selection/Selection";
+import { useCreatePetition } from "./useCreatePetition";
+
 export const CreatePetition = () => {
+  const {
+    selectedTopic,
+    handleSelectChange,
+    customTopic,
+    handleCustomTopicChange,
+  } = useCreatePetition();
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit molestiae
-      eos at, possimus, voluptates quo est sunt amet quae eaque deleniti,
-      explicabo quos. Aspernatur quas quo dignissimos quos labore esse!
-    </div>
+    <form action="#">
+      <Selection
+        handleChange={handleSelectChange}
+        selectedTopic={selectedTopic}
+        customTopic={customTopic}
+        handleCustomTopicChange={handleCustomTopicChange}
+      />
+      <textarea cols={30} rows={10} />
+      <button type="submit">Создать</button>
+    </form>
   );
 };
