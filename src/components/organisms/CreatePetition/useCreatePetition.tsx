@@ -13,6 +13,17 @@ export const useCreatePetition = () => {
   const [selectedTopic, setSelectedTopic] = useState("default");
   const [customTopic, setCustomTopic] = useState("");
   const [text, setText] = useState("");
+  const [images, setImages] = useState<string[]>([]);
+
+  const handleImageChange = (event: { target: { files: FileList | null } }) => {
+    if (event.target.files) {
+      const files = Array.from(event.target.files).map((file: File) =>
+        URL.createObjectURL(file)
+      );
+      setImages(files);
+    }
+  };
+
   const [error, setError] = useState("");
 
   const handleSelectChange = (event: { target: { value: any } }) => {
@@ -55,7 +66,7 @@ export const useCreatePetition = () => {
       id: petitions.length + 1,
       date: new Date().toLocaleDateString("ru-RU"),
       text: text,
-      images: [],
+      images,
       finish: false,
     };
     dispatch(addPetition(totalPetition));
@@ -74,5 +85,7 @@ export const useCreatePetition = () => {
     handleSetText,
     handleCreatePetition,
     error,
+    handleImageChange,
+    images,
   };
 };

@@ -1,3 +1,5 @@
+import { PictureList } from "../../molecules/PictureList/PictureList";
+
 export const InfoPetition = ({ id }: { id: string | undefined }) => {
   return (
     <div>
@@ -6,7 +8,7 @@ export const InfoPetition = ({ id }: { id: string | undefined }) => {
         <h3>theme</h3>
         <h4>date</h4>
       </div>
-      <div>photos</div>
+      <PictureList id={id} />
     </div>
   );
 };

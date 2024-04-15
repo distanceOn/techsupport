@@ -1,6 +1,9 @@
 import { Selection } from "../../molecules/Selection/Selection";
 import { useCreatePetition } from "./useCreatePetition";
 
+import S from "./CreatePetition.module.scss";
+import { PictureList } from "../../molecules/PictureList/PictureList";
+
 export const CreatePetition = () => {
   const {
     selectedTopic,
@@ -11,9 +14,11 @@ export const CreatePetition = () => {
     text,
     handleSetText,
     error,
+    handleImageChange,
+    images,
   } = useCreatePetition();
   return (
-    <form onSubmit={handleCreatePetition}>
+    <form className={S.form} onSubmit={handleCreatePetition}>
       <Selection
         handleChange={handleSelectChange}
         selectedTopic={selectedTopic}
@@ -26,6 +31,13 @@ export const CreatePetition = () => {
         onChange={handleSetText}
         cols={30}
         rows={10}
+      />
+      <PictureList pictures={images} />
+      <input
+        type="file"
+        accept="image/*"
+        multiple
+        onChange={handleImageChange}
       />
       {error && <div style={{ color: "red" }}>{error}</div>}
       <button type="submit">Создать</button>

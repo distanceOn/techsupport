@@ -10,8 +10,14 @@ export const StoryPetition = () => {
 
   return (
     <ul className={S.story}>
-      {reversedPetitions.map(({ theme, id, date, text }) => (
-        <PetitionCard theme={theme} id={id} date={date} text={text} />
+      {reversedPetitions.map(({ theme, id, date, text, finish }) => (
+        <PetitionCard
+          theme={theme}
+          id={id}
+          date={date}
+          text={text}
+          finish={finish}
+        />
       ))}
     </ul>
   );
