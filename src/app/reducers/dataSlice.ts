@@ -86,6 +86,12 @@ export const dataSlice = createSlice({
     addPetition: (state, { payload }) => {
       state.petitions = [...state.petitions, payload];
     },
+    toFinishPetition: (state, { payload }) => {
+      const petition = state.petitions.find((p) => p.id === payload);
+      if (petition) {
+        petition.finish = true;
+      }
+    },
     addChatMessage: (
       state,
       action: PayloadAction<{ id: number; message: ChatMessage }>
@@ -98,6 +104,7 @@ export const dataSlice = createSlice({
   },
 });
 
-export const { addPetition, addChatMessage } = dataSlice.actions;
+export const { addPetition, addChatMessage, toFinishPetition } =
+  dataSlice.actions;
 
 export const dataReducer = dataSlice.reducer;

@@ -4,6 +4,7 @@ import {
   useAppSelector,
 } from "../../../app/reducers/reduxHooks";
 import { addChatMessage } from "../../../app/reducers/dataSlice";
+import { openModal } from "../../../app/reducers/modalSlice";
 
 type ChatProps = {
   id: number;
@@ -37,10 +38,14 @@ export const Chat = ({ id }: ChatProps) => {
     setMessage("");
   };
 
+  const openFinishPetition = () => {
+    dispatch(openModal("finish"));
+  };
+
   return (
     <div>
       <div>
-        <button>вопрос решен?</button>
+        <button onClick={openFinishPetition}>вопрос решен?</button>
         <h4>Чат обращения {id}</h4>
       </div>
 

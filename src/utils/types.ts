@@ -3,4 +3,4 @@ export type HeaderLinkType = {
   text: string;
 };
 
-export type ModalType = "create" | null;
+export type ModalType = "create" | "finish" | null;
