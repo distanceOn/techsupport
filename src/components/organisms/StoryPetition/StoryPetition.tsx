@@ -10,9 +10,9 @@ export const StoryPetition = () => {
 
   return (
     <ul className={S.story}>
-      {reversedPetitions.map(({ id, text }, index) => (
-        <li key={`key-${id}-${index}`}>
-          <PetitionCard id={id} text={text} />
+      {reversedPetitions.map((petition, index) => (
+        <li key={`key-${petition.id}-${index}`}>
+          <PetitionCard data={petition} />
         </li>
       ))}
     </ul>

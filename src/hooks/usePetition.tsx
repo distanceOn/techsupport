@@ -11,7 +11,7 @@ const mockPetition = {
   chat: [],
 };
 
-export const useData = ({ id }: PetitionDefineType) => {
+export const usePetition = ({ id }: PetitionDefineType) => {
   const { petitions } = useAppSelector((state) => state.data);
 
   const getPetitionById = (id: number) => {
