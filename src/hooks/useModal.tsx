@@ -1,4 +1,4 @@
-import { closeModal } from "../app/reducers/modalSlice";
+import { closeModal, openModal } from "../app/reducers/modalSlice";
 import { useAppDispatch, useAppSelector } from "../app/reducers/reduxHooks";
 import { FinishPetition } from "../components/molecules/FinishPetition/FinishPetition";
 import { CreatePetition } from "../components/organisms/CreatePetition/CreatePetition";
@@ -18,6 +18,10 @@ export const useModal = () => {
     return modalContent[modalType];
   };
 
+  const openCreateModal = () => {
+    dispatch(openModal("create"));
+  };
+
   const toCloseModal = () => {
     dispatch(closeModal());
   };
@@ -28,5 +32,6 @@ export const useModal = () => {
     isModalOpen: isOpen,
     totalContent,
     toCloseModal,
+    openCreateModal,
   };
 };

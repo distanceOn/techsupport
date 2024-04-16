@@ -1,5 +1,5 @@
 import { DefaultTemplate } from "../../components/templates/DefaultTemplate/DefaultTemplate";
-import { useLogin } from "./useLogin";
+import { useLoginPage } from "./useLoginPage";
 
 import S from "./LoginPage.module.scss";
 import { LoginForm } from "../../components/molecules/LoginForm/LoginForm";
@@ -11,7 +11,7 @@ export const LoginPage = () => {
     handleChangePassword,
     handleChangeUsername,
     handleLogin,
-  } = useLogin();
+  } = useLoginPage();
 
   return (
     <DefaultTemplate

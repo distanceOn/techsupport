@@ -8,8 +8,13 @@ export const useNav = (totalId?: number) => {
     navigate(`/tickets/${totalId}`);
   };
 
+  const goToLogin = () => {
+    navigate("/login");
+  };
+
   return {
     id: Number(id),
     goToPetition,
+    goToLogin,
   };
 };

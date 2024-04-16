@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { useAppDispatch } from "../../app/reducers/reduxHooks";
-import { login } from "../../app/reducers/authSlice";
 import { EventChangeInput, EventForm } from "../../utils/eventTypes";
+import { useAuth } from "../../hooks/useAuth";
 
-export const useLogin = () => {
-  const dispatch = useAppDispatch();
+export const useLoginPage = () => {
+  const { toLogIn } = useAuth();
 
   const [username, setUsername] = useState("admin");
   const [password, setPassword] = useState("admin");
@@ -20,7 +19,7 @@ export const useLogin = () => {
   const handleLogin = (event: EventForm) => {
     event.preventDefault();
     if (username === "admin" && password === "admin") {
-      dispatch(login());
+      toLogIn();
     }
     console.log("Попытка входа:", username, password);
   };
