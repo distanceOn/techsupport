@@ -1,10 +1,12 @@
-import { SetStateAction, useState } from "react";
-import { useAppDispatch } from "../../../app/reducers/reduxHooks";
-import { addPetition } from "../../../app/reducers/dataSlice";
-import { closeModal } from "../../../app/reducers/modalSlice";
+import { ChangeEvent, useState } from "react";
+import { useModal } from "../../../hooks/useModal";
+import { useData } from "../../../hooks/useData";
+import { EventChangeInput, EventForm } from "../../../utils/eventTypes";
 
 export const useCreatePetition = () => {
-  const dispatch = useAppDispatch();
+  const { createNewPetition } = useData();
+  const { toCloseModal } = useModal();
+
   const [selectedTopic, setSelectedTopic] = useState("default");
   const [customTopic, setCustomTopic] = useState("");
   const [text, setText] = useState("");
@@ -21,8 +23,9 @@ export const useCreatePetition = () => {
 
   const [error, setError] = useState("");
 
-  const handleSelectChange = (event: { target: { value: any } }) => {
+  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
+
     setSelectedTopic(value);
     if (value !== "другое") {
       setCustomTopic("");
@@ -32,26 +35,26 @@ export const useCreatePetition = () => {
     }
   };
 
-  const handleCustomTopicChange = (event: {
-    target: { value: SetStateAction<string> };
-  }) => {
+  const handleCustomTopicChange = (event: EventChangeInput) => {
     setCustomTopic(event.target.value);
     setError("");
   };
 
-  const handleSetText = (event: { target: { value: any } }) => {
+  const handleSetText = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setText(event.target.value);
     setError("");
   };
 
-  const handleCreatePetition = (event: { preventDefault: () => void }) => {
+  const handleCreatePetition = (event: EventForm) => {
     event.preventDefault();
-    if (
+
+    const noFields =
       !selectedTopic ||
       selectedTopic === "default" ||
       !text ||
-      (selectedTopic === "другое" && !customTopic)
-    ) {
+      (selectedTopic === "другое" && !customTopic);
+
+    if (noFields) {
       setError("Все поля должны быть заполнены.");
       return;
     }
@@ -61,8 +64,9 @@ export const useCreatePetition = () => {
       text: text,
       images,
     };
-    dispatch(addPetition(totalPetition));
-    dispatch(closeModal());
+
+    createNewPetition(totalPetition);
+    toCloseModal();
     setText("");
     setCustomTopic("");
     setSelectedTopic("default");
