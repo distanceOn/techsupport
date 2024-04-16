@@ -22,6 +22,10 @@ export const useModal = () => {
     dispatch(openModal("create"));
   };
 
+  const openFinishPetitionModal = () => {
+    dispatch(openModal("finish"));
+  };
+
   const toCloseModal = () => {
     dispatch(closeModal());
   };
@@ -33,5 +37,6 @@ export const useModal = () => {
     totalContent,
     toCloseModal,
     openCreateModal,
+    openFinishPetitionModal,
   };
 };

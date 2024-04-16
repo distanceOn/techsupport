@@ -17,6 +17,7 @@ export const CreatePetition = () => {
     handleImageChange,
     images,
   } = useCreatePetition();
+
   return (
     <form className={S.form} onSubmit={handleCreatePetition}>
       <Selection

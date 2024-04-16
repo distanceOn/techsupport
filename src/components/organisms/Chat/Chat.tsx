@@ -1,51 +1,17 @@
-import React, { useState } from "react";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../../app/reducers/reduxHooks";
-import { addChatMessage } from "../../../app/reducers/dataSlice";
-import { openModal } from "../../../app/reducers/modalSlice";
+import { PetitionDefineType } from "../../../utils/types";
+import { usePetition } from "../../../hooks/usePetition";
+import { useChat } from "./useChat";
+import { useModal } from "../../../hooks/useModal";
 
-type ChatProps = {
-  id: number;
-};
-
-export const Chat = ({ id }: ChatProps) => {
-  const dispatch = useAppDispatch();
-  const petition = useAppSelector((state) =>
-    state.data.petitions.find((p) => p.id === id)
-  );
-
-  const [message, setMessage] = useState("");
-
-  const handleTyping = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setMessage(event.target.value);
-  };
-
-  const handleSend = () => {
-    dispatch(
-      addChatMessage({
-        id,
-        message: {
-          sender: "user2",
-          message,
-          timestamp: new Date().toLocaleDateString("ru-RU"),
-        },
-      })
-    );
-    setMessage("");
-  };
-
-  const openFinishPetition = () => {
-    dispatch(openModal("finish"));
-  };
+export const Chat = ({ id }: PetitionDefineType) => {
+  const { openFinishPetitionModal } = useModal();
+  const petition = usePetition({ id });
+  const { message, handleTyping, handleSendMessage } = useChat({ id });
 
   return (
     <div>
       <div>
-        <button onClick={openFinishPetition}>вопрос решен?</button>
+        <button onClick={openFinishPetitionModal}>вопрос решен?</button>
         <h4>Чат обращения {id}</h4>
       </div>
 
@@ -60,7 +26,7 @@ export const Chat = ({ id }: ChatProps) => {
 
       <div>
         <input value={message} onChange={handleTyping} type="text" />
-        <button onClick={handleSend}>отправить</button>
+        <button onClick={handleSendMessage}>отправить</button>
       </div>
     </div>
   );
