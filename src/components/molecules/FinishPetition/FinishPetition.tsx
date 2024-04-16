@@ -1,19 +1,18 @@
 import { useAppDispatch } from "../../../app/reducers/reduxHooks";
-import { closeModal } from "../../../app/reducers/modalSlice";
 import { toFinishPetition } from "../../../app/reducers/dataSlice";
-import { useParams } from "react-router-dom";
 
 import S from "./FinishPetition.module.scss";
+import { useNav } from "../../../hooks/useNav";
+import { useModal } from "../../../hooks/useModal";
 
 export const FinishPetition = () => {
-  const { id } = useParams();
   const dispatch = useAppDispatch();
-  const handleClose = () => {
-    dispatch(closeModal());
-  };
+  const { id } = useNav();
+  const { toCloseModal } = useModal();
+
   const handleFinishPetition = () => {
-    dispatch(toFinishPetition(Number(id)));
-    dispatch(closeModal());
+    dispatch(toFinishPetition(id));
+    toCloseModal();
   };
 
   return (
@@ -23,7 +22,7 @@ export const FinishPetition = () => {
         <button className={S.button} onClick={handleFinishPetition}>
           Yes
         </button>
-        <button className={S.button} onClick={handleClose}>
+        <button className={S.button} onClick={toCloseModal}>
           No
         </button>
       </div>
