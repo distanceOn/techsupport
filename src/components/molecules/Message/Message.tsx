@@ -9,10 +9,14 @@ export const Message = ({ sender, message, timestamp }: ChatMessage) => {
         <Title color="white" size="min">
           {sender + ":"}
         </Title>
-        <Text text={message} />
+        <Text color="white" size="default">
+          {message}
+        </Text>
       </div>
       <div>
-        <Text text={timestamp} />
+        <Text color="white" size="default">
+          {timestamp}
+        </Text>
       </div>
     </div>
   );

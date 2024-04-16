@@ -17,7 +17,9 @@ export const PetitionCard = ({ data }: PetitionCardProps) => {
   return (
     <div onClick={goToPetition} className={S.card}>
       <PetitionStats theme={theme} date={date} finish={finish} id={id} />
-      <Text text={text} />
+      <Text size="default" color="white">
+        {text}
+      </Text>
       <div className={S.icon}>
         <Icon type="arrow" />
       </div>

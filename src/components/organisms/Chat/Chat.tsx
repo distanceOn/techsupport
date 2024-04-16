@@ -21,7 +21,7 @@ export const Chat = ({ id }: PetitionDefineType) => {
           type="button"
         />
         <Title size="min" color="white">
-          `Чат обращения ${id}`
+          {`Чат обращения ${id}`}
         </Title>
       </div>
 
