@@ -4,6 +4,8 @@ import { toFinishPetition } from "../../../app/reducers/dataSlice";
 import S from "./FinishPetition.module.scss";
 import { useNav } from "../../../hooks/useNav";
 import { useModal } from "../../../hooks/useModal";
+import { Title } from "../../atoms/Title/Title";
+import { Btn } from "../../atoms/Btn/Btn";
 
 export const FinishPetition = () => {
   const dispatch = useAppDispatch();
@@ -17,14 +19,10 @@ export const FinishPetition = () => {
 
   return (
     <div className={S.content}>
-      <h2>Закрыть обращение?</h2>
+      <Title level={3} text="Закрыть обращение?" />
       <div>
-        <button className={S.button} onClick={handleFinishPetition}>
-          Yes
-        </button>
-        <button className={S.button} onClick={toCloseModal}>
-          No
-        </button>
+        <Btn type="button" text="Да" onClick={handleFinishPetition} />
+        <Btn type="button" text="Нет" onClick={toCloseModal} />
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ export const useCreatePetition = () => {
     const { value } = event.target;
 
     setSelectedTopic(value);
-    if (value !== "другое") {
+    if (value !== "other") {
       setCustomTopic("");
       setError("");
     } else if (!customTopic) {
@@ -52,7 +52,7 @@ export const useCreatePetition = () => {
       !selectedTopic ||
       selectedTopic === "default" ||
       !text ||
-      (selectedTopic === "другое" && !customTopic);
+      (selectedTopic === "other" && !customTopic);
 
     if (noFields) {
       setError("Все поля должны быть заполнены.");

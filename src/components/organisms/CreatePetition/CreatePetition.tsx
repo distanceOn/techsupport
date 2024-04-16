@@ -3,6 +3,9 @@ import { useCreatePetition } from "./useCreatePetition";
 
 import S from "./CreatePetition.module.scss";
 import { PictureList } from "../../molecules/PictureList/PictureList";
+import { AreaField } from "../../atoms/AreaField/AreaField";
+import { ImageField } from "../../atoms/ImageField/ImageField";
+import { Btn } from "../../atoms/Btn/Btn";
 
 export const CreatePetition = () => {
   const {
@@ -26,22 +29,11 @@ export const CreatePetition = () => {
         customTopic={customTopic}
         handleCustomTopicChange={handleCustomTopicChange}
       />
-      <textarea
-        required
-        value={text}
-        onChange={handleSetText}
-        cols={30}
-        rows={10}
-      />
+      <AreaField text={text} onChange={handleSetText} />
       <PictureList pictures={images} />
-      <input
-        type="file"
-        accept="image/*"
-        multiple
-        onChange={handleImageChange}
-      />
+      <ImageField onChange={handleImageChange} />
       {error && <div style={{ color: "red" }}>{error}</div>}
-      <button type="submit">Создать</button>
+      <Btn type="submit" text="Создать" onClick={() => {}} />
     </form>
   );
 };

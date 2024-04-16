@@ -1,3 +1,7 @@
+import { ChangeEvent } from "react";
+import { InputField } from "../../atoms/InputField/InputField";
+import { Title } from "../../atoms/Title/Title";
+
 type SelectionProps = {
   selectedTopic: string;
   handleChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -13,27 +17,24 @@ export const Selection = ({
 }: SelectionProps) => {
   return (
     <div>
-      <h3>Тема:</h3>
+      <Title level={3} text="Тема:" />
       <select required value={selectedTopic} onChange={handleChange}>
         <option disabled value="default">
           Выберите тему
         </option>
         <option value="sport">Спорт</option>
-        <option value="чтото">Чтото</option>
-        <option value="когото">когото</option>
-        <option value="другое">Другое</option>
+        <option value="games">Игры</option>
+        <option value="business">Бизнес</option>
+        <option value="other">Другое</option>
       </select>
-      {selectedTopic === "другое" && (
-        <div>
-          <label htmlFor="customTopic">Введите вашу тему:</label>
-          <input
-            required
-            type="text"
-            id="customTopic"
-            value={customTopic}
-            onChange={handleCustomTopicChange}
-          />
-        </div>
+      {selectedTopic === "other" && (
+        <InputField
+          label="Введите вашу тему:"
+          type="text"
+          id="customTopic"
+          value={customTopic}
+          onChange={handleCustomTopicChange}
+        />
       )}
     </div>
   );

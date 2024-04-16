@@ -1,6 +1,7 @@
 import { useAuth } from "../../../hooks/useAuth";
 import { useModal } from "../../../hooks/useModal";
 import { useNav } from "../../../hooks/useNav";
+import { Btn } from "../../atoms/Btn/Btn";
 import { Logo } from "../../atoms/Logo/Logo";
 import { HeaderList } from "../../molecules/HeaderList/HeaderList";
 
@@ -21,18 +22,12 @@ export const Header = () => {
       {isAuth && <HeaderList elements={links} />}
 
       {isMainPage && (
-        <div onClick={openCreateModal} className={S.logout}>
-          Новое обращение
-        </div>
+        <Btn type="button" text="Новое обращение" onClick={openCreateModal} />
       )}
       {isAuth ? (
-        <div onClick={toLogOut} className={S.logout}>
-          выход
-        </div>
+        <Btn type="button" text="Выход" onClick={toLogOut} />
       ) : (
-        <div onClick={goToLogin} className={S.logout}>
-          войти
-        </div>
+        <Btn type="button" text="Войти" onClick={goToLogin} />
       )}
     </header>
   );

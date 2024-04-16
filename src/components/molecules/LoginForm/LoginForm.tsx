@@ -1,4 +1,6 @@
+import { Btn } from "../../atoms/Btn/Btn";
 import { InputField } from "../../atoms/InputField/InputField";
+import { Title } from "../../atoms/Title/Title";
 import S from "./LoginForm.module.scss";
 
 interface LoginFormProps {
@@ -17,7 +19,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   onLoginSubmit,
 }) => (
   <form className={S.form} onSubmit={onLoginSubmit}>
-    <h2>Авторизация</h2>
+    <Title level={2} text="Авторизация" />
     <InputField
       label="Логин"
       type="text"
@@ -34,8 +36,6 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       onChange={handleChangePassword}
       required
     />
-    <button type="submit" className={S.btn}>
-      Войти
-    </button>
+    <Btn text="Войти" type="submit" onClick={() => {}} />
   </form>
 );
