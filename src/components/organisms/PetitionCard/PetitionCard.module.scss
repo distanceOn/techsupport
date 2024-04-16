@@ -15,12 +15,3 @@
 .text {
   flex-grow: 1;
 }
-
-.finish {
-  &_true {
-    background-color: #44a94e;
-  }
-  &_false {
-    background-color: #ff0909;
-  }
-}

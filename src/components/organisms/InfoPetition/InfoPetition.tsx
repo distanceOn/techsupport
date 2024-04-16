@@ -1,13 +1,11 @@
+import { PetitionDefineType } from "../../../utils/types";
+import { PetitionStats } from "../../molecules/PetitionStats/PetitionStats";
 import { PictureList } from "../../molecules/PictureList/PictureList";
 
-export const InfoPetition = ({ id }: { id: number }) => {
+export const InfoPetition = ({ id }: PetitionDefineType) => {
   return (
     <div>
-      <div>
-        <h4>{id}</h4>
-        <h3>theme</h3>
-        <h4>date</h4>
-      </div>
+      <PetitionStats id={id} />
       <PictureList id={id} />
     </div>
   );

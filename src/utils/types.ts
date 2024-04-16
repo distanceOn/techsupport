@@ -8,3 +8,7 @@ export type ModalType = "create" | "finish" | null;
 export type TemplateProps = {
   children: React.ReactNode;
 };
+
+export type PetitionDefineType = {
+  id: number;
+};
