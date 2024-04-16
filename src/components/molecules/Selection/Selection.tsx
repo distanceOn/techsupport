@@ -31,9 +31,7 @@ export const Selection = ({
       </select>
       {selectedTopic === "other" && (
         <InputField
-          label="Введите вашу тему:"
           type="text"
-          id="customTopic"
           value={customTopic}
           onChange={handleCustomTopicChange}
         />

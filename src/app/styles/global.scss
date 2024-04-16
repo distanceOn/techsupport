@@ -13,6 +13,10 @@
   cursor: default;
 }
 
+body {
+  background-color: var(--grey-primary);
+}
+
 a {
   text-decoration: none;
   color: inherit;

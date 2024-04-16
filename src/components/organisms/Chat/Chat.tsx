@@ -33,9 +33,7 @@ export const Chat = ({ id }: PetitionDefineType) => {
 
       <div>
         <InputField
-          label="Ваше сообщение"
           type="text"
-          id="message"
           value={message}
           onChange={handleTyping}
           required

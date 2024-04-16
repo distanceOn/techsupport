@@ -1,31 +1,26 @@
-import React from "react";
 import S from "./InputField.module.scss";
 
 type InputFieldProps = {
-  label: string;
+  placeholder?: string;
   type: string;
-  id: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
 };
 
 export const InputField = ({
-  label,
   type,
-  id,
   value,
   onChange,
+  placeholder,
   required = false,
 }: InputFieldProps) => (
-  <div className={S.input}>
-    <label htmlFor={id}>{label}</label>
-    <input
-      type={type}
-      id={id}
-      value={value}
-      onChange={onChange}
-      required={required}
-    />
-  </div>
+  <input
+    className={S.input}
+    placeholder={placeholder}
+    type={type}
+    value={value}
+    onChange={onChange}
+    required={required}
+  />
 );
