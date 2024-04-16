@@ -1,13 +1,11 @@
+import { TemplateProps } from "../../../utils/types";
 import { Header } from "../../organisms/Header/Header";
 
-type DefaultTemplateType = {
-  content: React.ReactNode;
-};
-export const DefaultTemplate = ({ content }: DefaultTemplateType) => {
+export const DefaultTemplate = ({ children }: TemplateProps) => {
   return (
     <>
       <Header />
-      <main>{content}</main>
+      <main>{children}</main>
     </>
   );
 };

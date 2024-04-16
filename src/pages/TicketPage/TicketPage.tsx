@@ -10,7 +10,7 @@ export const PetitionPage = () => {
   return (
     <>
       <DefaultTemplate
-        content={
+        children={
           <InfoTemplate
             info={<InfoPetition id={id} />}
             chat={<Chat id={id} />}

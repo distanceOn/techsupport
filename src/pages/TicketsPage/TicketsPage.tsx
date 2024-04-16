@@ -2,5 +2,5 @@ import { StoryPetition } from "../../components/organisms/StoryPetition/StoryPet
 import { DefaultTemplate } from "../../components/templates/DefaultTemplate/DefaultTemplate";
 
 export const TicketsPage = () => {
-  return <DefaultTemplate content={<StoryPetition />} />;
+  return <DefaultTemplate children={<StoryPetition />} />;
 };

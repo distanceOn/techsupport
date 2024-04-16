@@ -4,3 +4,7 @@ export type HeaderLinkType = {
 };
 
 export type ModalType = "create" | "finish" | null;
+
+export type TemplateProps = {
+  children: React.ReactNode;
+};

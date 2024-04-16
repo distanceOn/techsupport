@@ -15,7 +15,7 @@ export const LoginPage = () => {
 
   return (
     <DefaultTemplate
-      content={
+      children={
         <div className={S.container}>
           <LoginForm
             username={username}
