@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../../app/reducers/reduxHooks";
-import { PetitionCard } from "../../molecules/PetitionCard/PetitionCard";
+import { PetitionCard } from "../PetitionCard/PetitionCard";
 
 import S from "./StoryPetition.module.scss";
 
@@ -10,15 +10,9 @@ export const StoryPetition = () => {
 
   return (
     <ul className={S.story}>
-      {reversedPetitions.map(({ theme, id, date, text, finish }, index) => (
-        <li key={`key-${id}-${index}`}>
-          <PetitionCard
-            theme={theme}
-            id={id}
-            date={date}
-            text={text}
-            finish={finish}
-          />
+      {reversedPetitions.map((petition, index) => (
+        <li key={`key-${petition.id}-${index}`}>
+          <PetitionCard data={petition} />
         </li>
       ))}
     </ul>

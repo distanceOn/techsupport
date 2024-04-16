@@ -7,7 +7,7 @@ export const MainPage = () => {
   return (
     <>
       <DefaultTemplate
-        content={<StoryTemplate content={<StoryPetition />} />}
+        children={<StoryTemplate children={<StoryPetition />} />}
       />
       <ModalTemplate />
     </>

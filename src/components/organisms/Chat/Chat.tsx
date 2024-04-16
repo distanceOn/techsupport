@@ -1,66 +1,46 @@
-import React, { useState } from "react";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../../app/reducers/reduxHooks";
-import { addChatMessage } from "../../../app/reducers/dataSlice";
-import { openModal } from "../../../app/reducers/modalSlice";
+import { PetitionDefineType } from "../../../utils/types";
+import { usePetition } from "../../../hooks/usePetition";
+import { useChat } from "./useChat";
+import { useModal } from "../../../hooks/useModal";
+import { Btn } from "../../atoms/Btn/Btn";
+import { Message } from "../../molecules/Message/Message";
+import { Title } from "../../atoms/Title/Title";
+import { InputField } from "../../atoms/InputField/InputField";
 
-type ChatProps = {
-  id: number;
-};
-
-export const Chat = ({ id }: ChatProps) => {
-  const dispatch = useAppDispatch();
-  const petition = useAppSelector((state) =>
-    state.data.petitions.find((p) => p.id === id)
-  );
-
-  const [message, setMessage] = useState("");
-
-  const handleTyping = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setMessage(event.target.value);
-  };
-
-  const handleSend = () => {
-    dispatch(
-      addChatMessage({
-        id,
-        message: {
-          sender: "user2",
-          message,
-          timestamp: new Date().toLocaleDateString("ru-RU"),
-        },
-      })
-    );
-    setMessage("");
-  };
-
-  const openFinishPetition = () => {
-    dispatch(openModal("finish"));
-  };
+export const Chat = ({ id }: PetitionDefineType) => {
+  const { openFinishPetitionModal } = useModal();
+  const petition = usePetition({ id });
+  const { message, handleTyping, handleSendMessage } = useChat({ id });
 
   return (
     <div>
       <div>
-        <button onClick={openFinishPetition}>вопрос решен?</button>
-        <h4>Чат обращения {id}</h4>
+        <Btn
+          onClick={openFinishPetitionModal}
+          text="Вопрос решен?"
+          type="button"
+        />
+        <Title level={4} text={`Чат обращения ${id}`} />
       </div>
 
-      <div>
-        {petition?.chat?.map((msg, idx) => (
-          <p key={idx}>
-            <strong>{msg.sender}:</strong> {msg.message} <br />
-            {msg.timestamp}
-          </p>
+      <ul>
+        {petition?.chat?.map(({ sender, message, timestamp }, index) => (
+          <li key={timestamp + index}>
+            <Message message={message} sender={sender} timestamp={timestamp} />
+          </li>
         ))}
-      </div>
+      </ul>
 
       <div>
-        <input value={message} onChange={handleTyping} type="text" />
-        <button onClick={handleSend}>отправить</button>
+        <InputField
+          label="Ваше сообщение"
+          type="text"
+          id="message"
+          value={message}
+          onChange={handleTyping}
+          required
+        />
+        <Btn onClick={handleSendMessage} type="button" text="Отправить" />
       </div>
     </div>
   );

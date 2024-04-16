@@ -1,20 +1,19 @@
-import { useParams } from "react-router-dom";
 import { DefaultTemplate } from "../../components/templates/DefaultTemplate/DefaultTemplate";
 import { InfoTemplate } from "../../components/templates/InfoTemplate/InfoTemplate";
 import { InfoPetition } from "../../components/organisms/InfoPetition/InfoPetition";
 import { Chat } from "../../components/organisms/Chat/Chat";
 import { ModalTemplate } from "../../components/templates/ModalTemplate/ModalTempate";
+import { useNav } from "../../hooks/useNav";
 
 export const PetitionPage = () => {
-  const { id } = useParams();
-  const totalId = Number(id);
+  const { id } = useNav();
   return (
     <>
       <DefaultTemplate
-        content={
+        children={
           <InfoTemplate
-            info={<InfoPetition id={totalId} />}
-            chat={<Chat id={totalId} />}
+            info={<InfoPetition id={id} />}
+            chat={<Chat id={id} />}
           />
         }
       />

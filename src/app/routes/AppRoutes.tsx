@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ProtectedAuth, ProtectedContent } from "./ProtectedRoutes";
 import { MainPage } from "../../pages/MainPage/MainPage";
-import { TicketsPage } from "../../pages/TicketsPage/MainPage";
+import { TicketsPage } from "../../pages/TicketsPage/TicketsPage";
 import { PetitionPage } from "../../pages/TicketPage/TicketPage";
 import { LoginPage } from "../../pages/LoginPage/LoginPage";
 

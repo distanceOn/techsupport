@@ -1,8 +1,10 @@
-export const StoryTemplate = ({ content }: { content: React.ReactNode }) => {
+import { TemplateProps } from "../../../utils/types";
+
+export const StoryTemplate = ({ children }: TemplateProps) => {
   return (
     <section>
       <h2>История обращений</h2>
-      {content}
+      {children}
     </section>
   );
 };

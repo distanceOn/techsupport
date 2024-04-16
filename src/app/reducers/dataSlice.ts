@@ -1,20 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-
-type ChatMessage = {
-  sender: string;
-  message: string;
-  timestamp: string;
-};
-
-type Petition = {
-  theme: string;
-  id: number;
-  date: string;
-  text: string;
-  images: string[];
-  finish: boolean;
-  chat: ChatMessage[];
-};
+import { ChatMessage, Petition } from "../../utils/types";
 
 type DataSlice = {
   petitions: Petition[];

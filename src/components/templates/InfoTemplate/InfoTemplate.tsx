@@ -1,12 +1,11 @@
 import { ReactNode } from "react";
 
-export const InfoTemplate = ({
-  info,
-  chat,
-}: {
+type InfoTemplateProps = {
   info: ReactNode;
   chat: ReactNode;
-}) => {
+};
+
+export const InfoTemplate = ({ info, chat }: InfoTemplateProps) => {
   return (
     <section>
       <div>{info}</div>

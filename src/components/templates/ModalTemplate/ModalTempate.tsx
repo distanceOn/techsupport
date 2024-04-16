@@ -1,27 +1,15 @@
 import S from "./ModalTemplate.module.scss";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../../app/reducers/reduxHooks";
-import { closeModal } from "../../../app/reducers/modalSlice";
-import { getModalByType } from "./utils";
+import { useModal } from "../../../hooks/useModal";
 
 export const ModalTemplate = () => {
-  const dispatch = useAppDispatch();
-  const { isOpen, type } = useAppSelector((state) => state.modal);
+  const { isModalOpen, totalContent, toCloseModal } = useModal();
 
-  const onClose = () => {
-    dispatch(closeModal());
-  };
-
-  if (!isOpen) return null;
-
-  const modal = getModalByType(type);
+  if (!isModalOpen) return null;
 
   return (
-    <div className={S.overlay} onClick={onClose}>
+    <div className={S.overlay} onClick={toCloseModal}>
       <div className={S.content} onClick={(e) => e.stopPropagation()}>
-        {modal}
+        {totalContent}
       </div>
     </div>
   );
