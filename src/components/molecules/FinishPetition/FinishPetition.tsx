@@ -23,8 +23,12 @@ export const FinishPetition = () => {
         Закрыть обращение?
       </Title>
       <div>
-        <Btn type="button" text="Да" onClick={handleFinishPetition} />
-        <Btn type="button" text="Нет" onClick={toCloseModal} />
+        <Btn color="grey" type="button" onClick={handleFinishPetition}>
+          Да
+        </Btn>
+        <Btn color="grey" type="button" onClick={toCloseModal}>
+          Нет
+        </Btn>
       </div>
     </div>
   );

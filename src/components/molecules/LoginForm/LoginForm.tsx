@@ -38,6 +38,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       onChange={handleChangePassword}
       required
     />
-    <Btn text="Войти" type="submit" onClick={() => {}} />
+    <Btn color="grey" type="submit" onClick={() => {}}>
+      Войти
+    </Btn>
   </form>
 );

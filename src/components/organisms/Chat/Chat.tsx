@@ -15,11 +15,9 @@ export const Chat = ({ id }: PetitionDefineType) => {
   return (
     <div>
       <div>
-        <Btn
-          onClick={openFinishPetitionModal}
-          text="Вопрос решен?"
-          type="button"
-        />
+        <Btn color="grey" onClick={openFinishPetitionModal} type="button">
+          Вопрос решен?
+        </Btn>
         <Title size="min" color="white">
           {`Чат обращения ${id}`}
         </Title>
@@ -42,7 +40,9 @@ export const Chat = ({ id }: PetitionDefineType) => {
           onChange={handleTyping}
           required
         />
-        <Btn onClick={handleSendMessage} type="button" text="Отправить" />
+        <Btn color="grey" onClick={handleSendMessage} type="button">
+          Отправить
+        </Btn>
       </div>
     </div>
   );

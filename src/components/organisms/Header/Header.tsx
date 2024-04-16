@@ -22,12 +22,18 @@ export const Header = () => {
       {isAuth && <HeaderList elements={links} />}
 
       {isMainPage && (
-        <Btn type="button" text="Новое обращение" onClick={openCreateModal} />
+        <Btn color="grey" type="button" onClick={openCreateModal}>
+          Новое обращение
+        </Btn>
       )}
       {isAuth ? (
-        <Btn type="button" text="Выход" onClick={toLogOut} />
+        <Btn color="grey" type="button" onClick={toLogOut}>
+          Выход
+        </Btn>
       ) : (
-        <Btn type="button" text="Войти" onClick={goToLogin} />
+        <Btn color="grey" type="button" onClick={goToLogin}>
+          Войти
+        </Btn>
       )}
     </header>
   );

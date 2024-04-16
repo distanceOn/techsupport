@@ -33,7 +33,9 @@ export const CreatePetition = () => {
       <PictureList pictures={images} />
       <ImageField onChange={handleImageChange} />
       {error && <div style={{ color: "red" }}>{error}</div>}
-      <Btn type="submit" text="Создать" onClick={() => {}} />
+      <Btn color="grey" type="submit" onClick={() => {}}>
+        Создать
+      </Btn>
     </form>
   );
 };
