@@ -1,5 +1,10 @@
 .title {
-  font-weight: 600;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: fit-content;
+  max-width: 100%;
 
   &_min {
     font-size: 1.6rem;
@@ -16,8 +21,10 @@
   }
 
   &_default {
+    text-transform: uppercase;
     font-size: 3rem;
-    font-weight: 700;
+    color: #fff;
+    cursor: default;
   }
 
   &_large {

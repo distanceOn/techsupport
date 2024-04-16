@@ -1,12 +1,16 @@
 .text {
   font-weight: 600;
   font-size: 1.6rem;
+  overflow-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  text-align: center;
   &_default {
     font-size: 1.6rem;
   }
 
   &_thin {
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 400;
   }
 }
@@ -14,6 +18,9 @@
 .color {
   &_white {
     color: #fff;
+  }
+  &_gold {
+    color: #ffaf03;
   }
   &_grey {
     color: #444b58;

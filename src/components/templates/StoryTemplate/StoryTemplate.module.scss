@@ -1,0 +1,25 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding: 2vw;
+  flex-wrap: wrap;
+  position: relative;
+  &::before {
+    content: "";
+    height: 2px;
+    position: absolute;
+    background: linear-gradient(90deg, #4b4d51 20%, transparent 70%);
+    top: 50%;
+    left: -70%;
+    width: 100%;
+  }
+  &::after {
+    content: "";
+    height: 2px;
+    position: absolute;
+    background: linear-gradient(270deg, #4b4d51 20%, transparent 70%);
+    top: 50%;
+    right: -70%;
+    width: 100%;
+  }
+}

@@ -1,4 +1,4 @@
-export type BtnColors = "grey" | "white";
+export type BtnColors = "grey" | "white" | "green";
 export type BtnTypes = "submit" | "reset" | "button";
 
 export type BtnStyles = {

@@ -6,6 +6,7 @@ export const colorClassNames: Record<TextColors, string> = {
   grey: S.color_grey,
   lightgrey: S.color_lightgrey,
   black: S.color_black,
+  gold: S.color_gold,
 };
 
 export const sizeClassNames: Record<TextSizes, string> = {
