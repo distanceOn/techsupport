@@ -2,7 +2,7 @@ import { DefaultTemplate } from "../../components/templates/DefaultTemplate/Defa
 import { useLogin } from "./useLogin";
 
 import S from "./LoginPage.module.scss";
-import { InputField } from "../../components/atoms/InputField/InputField";
+import { LoginForm } from "../../components/molecules/LoginForm/LoginForm";
 
 export const LoginPage = () => {
   const {
@@ -17,28 +17,13 @@ export const LoginPage = () => {
     <DefaultTemplate
       content={
         <div className={S.container}>
-          <form className={S.form} onSubmit={handleLogin}>
-            <h2>Login</h2>
-            <InputField
-              label="Логин"
-              type="text"
-              id="login"
-              value={username}
-              onChange={handleChangeUsername}
-              required
-            />
-            <InputField
-              label="Пароль"
-              type="password"
-              id="password"
-              value={password}
-              onChange={handleChangePassword}
-              required
-            />
-            <button type="submit" className={S.btn}>
-              Login
-            </button>
-          </form>
+          <LoginForm
+            username={username}
+            password={password}
+            handleChangePassword={handleChangePassword}
+            handleChangeUsername={handleChangeUsername}
+            onLoginSubmit={handleLogin}
+          />
         </div>
       }
     />
