@@ -19,7 +19,9 @@ export const FinishPetition = () => {
 
   return (
     <div className={S.content}>
-      <Title level={3} text="Закрыть обращение?" />
+      <Title color="white" size="small">
+        Закрыть обращение?
+      </Title>
       <div>
         <Btn type="button" text="Да" onClick={handleFinishPetition} />
         <Btn type="button" text="Нет" onClick={toCloseModal} />

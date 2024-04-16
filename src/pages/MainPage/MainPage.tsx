@@ -3,13 +3,15 @@ import { DefaultTemplate } from "../../components/templates/DefaultTemplate/Defa
 import { ModalTemplate } from "../../components/templates/ModalTemplate/ModalTempate";
 import { StoryTemplate } from "../../components/templates/StoryTemplate/StoryTemplate";
 
+import S from "./MainPage.module.scss";
+
 export const MainPage = () => {
   return (
-    <>
+    <div className={S.page}>
       <DefaultTemplate
         children={<StoryTemplate children={<StoryPetition />} />}
       />
       <ModalTemplate />
-    </>
+    </div>
   );
 };

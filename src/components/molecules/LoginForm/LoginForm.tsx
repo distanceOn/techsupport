@@ -19,7 +19,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   onLoginSubmit,
 }) => (
   <form className={S.form} onSubmit={onLoginSubmit}>
-    <Title level={2} text="Авторизация" />
+    <Title color="white" size="default">
+      Авторизация
+    </Title>
     <InputField
       label="Логин"
       type="text"

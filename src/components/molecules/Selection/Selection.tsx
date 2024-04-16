@@ -17,7 +17,9 @@ export const Selection = ({
 }: SelectionProps) => {
   return (
     <div>
-      <Title level={3} text="Тема:" />
+      <Title color="white" size="small">
+        Тема:
+      </Title>
       <select required value={selectedTopic} onChange={handleChange}>
         <option disabled value="default">
           Выберите тему

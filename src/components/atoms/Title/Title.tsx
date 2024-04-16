@@ -1,22 +1,12 @@
-export const Title = ({
-  level,
-  text,
-}: {
-  level: 1 | 2 | 3 | 4;
-  text: string | number;
-}) => {
-  if (level === 4) {
-    return <h4>{text}</h4>;
-  }
-  if (level === 3) {
-    return <h3>{text}</h3>;
-  }
-  if (level === 2) {
-    return <h2>{text}</h2>;
-  }
-  if (level === 1) {
-    return <h1>{text}</h1>;
-  }
+import React from "react";
+import { TitleProps } from "./types";
+import { getTotalTitleClassName } from "./utils";
+import { titleTagMap } from "./consts";
 
-  return null;
+export const Title = ({ children, color, size }: TitleProps) => {
+  const className = getTotalTitleClassName({ color, size });
+
+  const Tag: React.ElementType = titleTagMap[size] || titleTagMap.default;
+
+  return <Tag className={className}>{children}</Tag>;
 };

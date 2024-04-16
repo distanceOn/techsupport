@@ -6,7 +6,9 @@ export const Message = ({ sender, message, timestamp }: ChatMessage) => {
   return (
     <div>
       <div>
-        <Title text={sender + ":"} level={4} />
+        <Title color="white" size="min">
+          {sender + ":"}
+        </Title>
         <Text text={message} />
       </div>
       <div>

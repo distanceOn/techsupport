@@ -20,7 +20,9 @@ export const Chat = ({ id }: PetitionDefineType) => {
           text="Вопрос решен?"
           type="button"
         />
-        <Title level={4} text={`Чат обращения ${id}`} />
+        <Title size="min" color="white">
+          `Чат обращения ${id}`
+        </Title>
       </div>
 
       <ul>

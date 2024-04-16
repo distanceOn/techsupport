@@ -1,4 +1,10 @@
 @import "fonts";
+
+:root {
+  --grey-dark: #19181b;
+  --grey-primary: #242227;
+}
+
 * {
   font-family: "Jost", sans-serif;
   box-sizing: border-box;
@@ -24,18 +30,18 @@ button {
 
 @media (max-width: 768px) {
   html {
-    font-size: 50%; /* Уменьшение базового размера шрифта для малых экранов */
+    font-size: 50%;
   }
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 56.25%; /* Увеличение для планшетов */
+    font-size: 56.25%;
   }
 }
 
 @media (min-width: 1200px) {
   html {
-    font-size: 62.5%; /* Увеличение для десктопов */
+    font-size: 62.5%;
   }
 }
