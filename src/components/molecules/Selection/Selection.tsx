@@ -1,15 +1,8 @@
-import { ChangeEvent } from "react";
 import { InputField } from "../../atoms/InputField/InputField";
 import { Title } from "../../atoms/Title/Title";
 
 import S from "./Selection.module.scss";
-
-type SelectionProps = {
-  selectedTopic: string;
-  handleChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  customTopic: string;
-  handleCustomTopicChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+import { SelectionProps } from "./types";
 
 export const Selection = ({
   selectedTopic,

@@ -1,12 +1,6 @@
 import { Title } from "../../atoms/Title/Title";
 import S from "./PetitionStats.module.scss";
-
-type PetitionStatsProps = {
-  id: number;
-  finish: boolean;
-  theme: string;
-  date: string;
-};
+import { PetitionStatsProps } from "./types";
 
 export const PetitionStats = ({
   id,

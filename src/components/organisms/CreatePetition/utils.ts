@@ -1,8 +1,9 @@
-import { ChangeEvent } from "react";
+import { EventChangeInput } from "../../../utils/eventTypes";
+import { PetitionImagesType } from "../../../utils/types";
 
 export const handleUploadImages = (
-  event: ChangeEvent<HTMLInputElement>,
-  images: string[]
+  event: EventChangeInput,
+  images: PetitionImagesType
 ) => {
   if (event.target.files) {
     const newFiles = Array.from(event.target.files).map((file) =>

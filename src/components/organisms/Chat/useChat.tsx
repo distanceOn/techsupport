@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { addChatMessage } from "../../../app/reducers/dataSlice";
-import { useAppDispatch } from "../../../app/reducers/reduxHooks";
+import { useAppDispatch } from "../../../hooks/reduxHooks";
 import { PetitionDefineType } from "../../../utils/types";
 import { getTime } from "../../../utils/utils";
+import { EventChangeInput } from "../../../utils/eventTypes";
 
 export const useChat = ({ id }: PetitionDefineType) => {
   const dispatch = useAppDispatch();
   const [message, setMessage] = useState("");
 
-  const handleTyping = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTyping = (event: EventChangeInput) => {
     setMessage(event.target.value);
   };
 

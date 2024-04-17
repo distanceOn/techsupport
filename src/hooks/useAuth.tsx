@@ -1,5 +1,5 @@
 import { login, logout } from "../app/reducers/authSlice";
-import { useAppDispatch } from "../app/reducers/reduxHooks";
+import { useAppDispatch } from "./reduxHooks";
 
 export const useAuth = () => {
   const dispatch = useAppDispatch();

@@ -1,5 +1,5 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { useAppSelector } from "../reducers/reduxHooks";
+import { useAppSelector } from "../../hooks/reduxHooks";
 
 export const ProtectedContent = () => {
   const { isAuth } = useAppSelector((state) => state.auth);

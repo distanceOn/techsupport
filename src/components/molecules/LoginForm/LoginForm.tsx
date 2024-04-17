@@ -2,22 +2,15 @@ import { Btn } from "../../atoms/Btn/Btn";
 import { InputField } from "../../atoms/InputField/InputField";
 import { Title } from "../../atoms/Title/Title";
 import S from "./LoginForm.module.scss";
+import { LoginFormProps } from "./types";
 
-interface LoginFormProps {
-  username: string;
-  password: string;
-  handleChangeUsername: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleChangePassword: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onLoginSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-}
-
-export const LoginForm: React.FC<LoginFormProps> = ({
+export const LoginForm = ({
   username,
   password,
   handleChangeUsername,
   handleChangePassword,
   onLoginSubmit,
-}) => (
+}: LoginFormProps) => (
   <form className={S.form} onSubmit={onLoginSubmit}>
     <div className={S.title}>
       <Title color="white" size="small">

@@ -1,16 +1,15 @@
-import { ChangeEvent, ChangeEventHandler } from "react";
+import { ChangeEventHandler } from "react";
 import S from "./AreaField.module.scss";
+import { EventChangeTextArea } from "../../../utils/eventTypes";
 
-export const AreaField = ({
-  text,
-  onChange,
-  placeholder,
-}: {
+type AreaFieldProps = {
   text: string;
   onChange: ChangeEventHandler<HTMLTextAreaElement>;
   placeholder: string;
-}) => {
-  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+};
+
+export const AreaField = ({ text, onChange, placeholder }: AreaFieldProps) => {
+  const handleChange = (event: EventChangeTextArea) => {
     const newText = event.target.value;
     if (newText.length <= 1000) {
       onChange(event);

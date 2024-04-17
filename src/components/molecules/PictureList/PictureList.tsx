@@ -1,15 +1,10 @@
-import { useAppSelector } from "../../../app/reducers/reduxHooks";
+import { useAppSelector } from "../../../hooks/reduxHooks";
 import { Picture } from "../../atoms/Picture/Picture";
 
 import S from "./PictureList.module.scss";
+import { PictureListProps } from "./types";
 
-export const PictureList = ({
-  id,
-  pictures,
-}: {
-  id?: number;
-  pictures?: string[];
-}) => {
+export const PictureList = ({ id, pictures }: PictureListProps) => {
   const { petitions } = useAppSelector((state) => state.data);
 
   const totalPictures =

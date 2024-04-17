@@ -1,4 +1,4 @@
-import { useAppSelector } from "../app/reducers/reduxHooks";
+import { useAppSelector } from "./reduxHooks";
 import { PetitionDefineType } from "../utils/types";
 
 const mockPetition = {

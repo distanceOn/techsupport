@@ -1,4 +1,4 @@
-import { useAppSelector } from "../../../app/reducers/reduxHooks";
+import { useAppSelector } from "../../../hooks/reduxHooks";
 import { useAuth } from "../../../hooks/useAuth";
 import { useNav } from "../../../hooks/useNav";
 import { Btn } from "../../atoms/Btn/Btn";
@@ -13,23 +13,25 @@ export const Header = () => {
   const { goToLogin } = useNav();
   const { toLogOut } = useAuth();
 
+  const headerContent = isAuth ? (
+    <>
+      <HeaderList elements={links} />
+      <Btn color="grey" type="button" onClick={toLogOut}>
+        Выход
+      </Btn>
+    </>
+  ) : (
+    <Btn color="grey" type="button" onClick={goToLogin}>
+      Войти
+    </Btn>
+  );
+
   return (
     <header className={S.header}>
       <div className={S.logo}>
         <Logo />
       </div>
-      {isAuth ? (
-        <>
-          <HeaderList elements={links} />{" "}
-          <Btn color="grey" type="button" onClick={toLogOut}>
-            Выход
-          </Btn>
-        </>
-      ) : (
-        <Btn color="grey" type="button" onClick={goToLogin}>
-          Войти
-        </Btn>
-      )}
+      {headerContent}
     </header>
   );
 };

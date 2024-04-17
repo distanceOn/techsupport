@@ -21,7 +21,6 @@ export const useLoginPage = () => {
     if (username === "admin" && password === "admin") {
       toLogIn();
     }
-    console.log("Попытка входа:", username, password);
   };
 
   return {
