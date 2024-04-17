@@ -14,6 +14,9 @@ export const useChat = ({ id }: PetitionDefineType) => {
   };
 
   const handleSendMessage = () => {
+    const totalMessage = message.trim();
+    if (totalMessage.length === 0) return;
+
     dispatch(
       addChatMessage({
         id,

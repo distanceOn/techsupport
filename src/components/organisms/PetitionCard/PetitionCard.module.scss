@@ -65,4 +65,10 @@
   padding: 5%;
   overflow: scroll;
   flex: 6 1 60%;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
 }
