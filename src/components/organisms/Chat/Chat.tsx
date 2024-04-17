@@ -12,7 +12,7 @@ import { useEffect, useRef } from "react";
 
 export const Chat = ({ id }: PetitionDefineType) => {
   const { openFinishPetitionModal } = useModal();
-  const { finish, chat } = usePetition({ id });
+  const petition = usePetition({ id });
   const { message, handleTyping, handleSendMessage } = useChat({ id });
 
   const scrollContainerRef = useRef<HTMLUListElement>(null);
@@ -22,9 +22,9 @@ export const Chat = ({ id }: PetitionDefineType) => {
     if (targetContainer) {
       targetContainer.scrollTop = targetContainer.scrollHeight;
     }
-  }, [chat]);
+  }, [petition?.chat]);
 
-  const isFinishComponent = finish ? (
+  const isFinishComponent = petition?.finish ? (
     <Title color="white" size="small">
       Обращение закрыто
     </Title>
@@ -44,13 +44,13 @@ export const Chat = ({ id }: PetitionDefineType) => {
       </div>
 
       <ul ref={scrollContainerRef} className={S.chat}>
-        {chat?.map(({ sender, message, timestamp }, index) => (
+        {petition?.chat.map(({ sender, message, timestamp }, index) => (
           <li key={timestamp + index}>
             <Message message={message} sender={sender} timestamp={timestamp} />
           </li>
         ))}
       </ul>
-      {!finish && (
+      {!petition?.finish && (
         <div className={S.send}>
           <InputField
             placeholder="Сообщение..."
