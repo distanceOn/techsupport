@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useModal } from "../../../hooks/useModal";
 import { useData } from "../../../hooks/useData";
 import { EventChangeInput, EventForm } from "../../../utils/eventTypes";
@@ -12,15 +12,27 @@ export const useCreatePetition = () => {
   const [text, setText] = useState("");
   const [images, setImages] = useState<string[]>([]);
 
-  const handleImageChange = (event: { target: { files: FileList | null } }) => {
+  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
-      const files = Array.from(event.target.files).map((file: File) =>
+      const newFiles = Array.from(event.target.files).map((file) =>
         URL.createObjectURL(file)
       );
-      setImages([...images, ...files]);
+
+      const updatedImages = [...images, ...newFiles];
+      while (updatedImages.length > 5) {
+        const removedUrl = updatedImages.shift();
+        if (removedUrl) {
+          URL.revokeObjectURL(removedUrl);
+        }
+      }
+
+      setImages(updatedImages);
     }
   };
 
+  useEffect(() => {
+    console.log(images);
+  }, [images]);
   const [error, setError] = useState("");
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
