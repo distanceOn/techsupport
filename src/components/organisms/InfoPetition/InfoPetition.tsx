@@ -17,6 +17,7 @@ export const InfoPetition = ({ id }: PetitionDefineType) => {
           {text}
         </Text>
       </div>
+
       <PictureList id={id} />
     </div>
   );

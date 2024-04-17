@@ -10,6 +10,8 @@
     0 0 0 1px #a37a2c,
     0 0 0 2px #303034,
     0 8px 16px rgba(0, 0, 0, 0.2);
+  min-height: 30vw;
+  padding-bottom: 1vw;
 }
 
 .text {
@@ -19,4 +21,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
 }
