@@ -19,9 +19,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   onLoginSubmit,
 }) => (
   <form className={S.form} onSubmit={onLoginSubmit}>
-    <Title color="white" size="small">
-      Вход в аккаунт
-    </Title>
+    <div className={S.title}>
+      <Title color="white" size="small">
+        Вход в аккаунт
+      </Title>
+    </div>
+
     <InputField
       placeholder="admin"
       type="text"

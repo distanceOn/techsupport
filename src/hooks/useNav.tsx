@@ -12,9 +12,14 @@ export const useNav = (totalId?: number) => {
     navigate("/login");
   };
 
+  const goToMain = () => {
+    navigate("/");
+  };
+
   return {
     id: Number(id),
     goToPetition,
     goToLogin,
+    goToMain,
   };
 };
