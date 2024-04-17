@@ -21,14 +21,14 @@ export const usePetition = ({ id }: PetitionDefineType) => {
     return petitions.find((p) => p.id === id);
   };
 
-  const petition = getPetitionById(id) || mockPetition;
-
   useEffect(() => {
     if (!getPetitionById(id)) {
       goToMain();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+
+  const petition = getPetitionById(id) || mockPetition;
 
   return {
     ...petition,

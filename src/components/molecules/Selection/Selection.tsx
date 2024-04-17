@@ -25,9 +25,9 @@ export const Selection = ({
           <option disabled value="default">
             Выберите тему
           </option>
-          <option value="Спорт">Спорт</option>
-          <option value="Игры">Игры</option>
-          <option value="Бизнес">Бизнес</option>
+          <option value="CarX Drift">CarX Drift</option>
+          <option value="CarX Store">CarX Store</option>
+          <option value="Xlab">Xlab</option>
           <option value="other">Другое</option>
         </select>
       </div>
