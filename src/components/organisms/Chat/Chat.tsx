@@ -44,11 +44,23 @@ export const Chat = ({ id }: PetitionDefineType) => {
       </div>
 
       <ul ref={scrollContainerRef} className={S.chat}>
-        {petition?.chat.map(({ sender, message, timestamp }, index) => (
-          <li key={timestamp + index}>
-            <Message message={message} sender={sender} timestamp={timestamp} />
-          </li>
-        ))}
+        {petition.chat.length !== 0 ? (
+          petition?.chat.map(({ sender, message, timestamp }, index) => (
+            <li key={timestamp + index}>
+              <Message
+                message={message}
+                sender={sender}
+                timestamp={timestamp}
+              />
+            </li>
+          ))
+        ) : (
+          <div className={S.empty}>
+            <Title size="default" color="white">
+              Чат пуст
+            </Title>
+          </div>
+        )}
       </ul>
       {!petition?.finish && (
         <div className={S.send}>
