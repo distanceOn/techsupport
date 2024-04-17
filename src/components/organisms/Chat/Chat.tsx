@@ -12,16 +12,27 @@ import { useEffect, useRef } from "react";
 
 export const Chat = ({ id }: PetitionDefineType) => {
   const { openFinishPetitionModal } = useModal();
-  const petition = usePetition({ id });
+  const { finish, chat } = usePetition({ id });
   const { message, handleTyping, handleSendMessage } = useChat({ id });
 
   const scrollContainerRef = useRef<HTMLUListElement>(null);
+
   useEffect(() => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollTop =
-        scrollContainerRef.current.scrollHeight;
+    const targetContainer = scrollContainerRef.current;
+    if (targetContainer) {
+      targetContainer.scrollTop = targetContainer.scrollHeight;
     }
-  }, [petition?.chat]);
+  }, [chat]);
+
+  const isFinishComponent = finish ? (
+    <Title color="white" size="small">
+      Обращение закрыто
+    </Title>
+  ) : (
+    <Btn color="green" onClick={openFinishPetitionModal} type="button">
+      Вопрос решен?
+    </Btn>
+  );
 
   return (
     <div className={S.container}>
@@ -29,25 +40,17 @@ export const Chat = ({ id }: PetitionDefineType) => {
         <Title size="min" color="white">
           {`Чат обращения #${id}`}
         </Title>
-        {petition.finish ? (
-          <Title color="white" size="small">
-            Обращение закрыто
-          </Title>
-        ) : (
-          <Btn color="green" onClick={openFinishPetitionModal} type="button">
-            Вопрос решен?
-          </Btn>
-        )}
+        {isFinishComponent}
       </div>
 
       <ul ref={scrollContainerRef} className={S.chat}>
-        {petition?.chat?.map(({ sender, message, timestamp }, index) => (
+        {chat?.map(({ sender, message, timestamp }, index) => (
           <li key={timestamp + index}>
             <Message message={message} sender={sender} timestamp={timestamp} />
           </li>
         ))}
       </ul>
-      {!petition.finish && (
+      {!finish && (
         <div className={S.send}>
           <InputField
             placeholder="Сообщение..."
