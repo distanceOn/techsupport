@@ -19,11 +19,13 @@ export const FinishPetition = () => {
 
   return (
     <div className={S.content}>
-      <Title color="white" size="small">
-        Закрыть обращение?
-      </Title>
-      <div>
-        <Btn color="grey" type="button" onClick={handleFinishPetition}>
+      <div className={S.title}>
+        <Title color="white" size="small">
+          Закрыть обращение?
+        </Title>
+      </div>
+      <div className={S.btns}>
+        <Btn color="green" type="button" onClick={handleFinishPetition}>
           Да
         </Btn>
         <Btn color="grey" type="button" onClick={toCloseModal}>
