@@ -1,5 +1,5 @@
 import { closeModal, openModal } from "../app/reducers/modalSlice";
-import { useAppDispatch, useAppSelector } from "../app/reducers/reduxHooks";
+import { useAppDispatch, useAppSelector } from "./reduxHooks";
 import { FinishPetition } from "../components/molecules/FinishPetition/FinishPetition";
 import { CreatePetition } from "../components/organisms/CreatePetition/CreatePetition";
 import { ModalType } from "../utils/types";

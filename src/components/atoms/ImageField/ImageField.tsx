@@ -2,11 +2,11 @@ import { ChangeEventHandler } from "react";
 
 import S from "./ImageField.module.scss";
 
-export const ImageField = ({
-  onChange,
-}: {
+type ImageFieldProps = {
   onChange: ChangeEventHandler<HTMLInputElement>;
-}) => {
+};
+
+export const ImageField = ({ onChange }: ImageFieldProps) => {
   return (
     <div className={S.container}>
       <input

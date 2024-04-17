@@ -1,4 +1,4 @@
-import { useAppSelector } from "../../../app/reducers/reduxHooks";
+import { useAppSelector } from "../../../hooks/reduxHooks";
 import { PetitionCard } from "../PetitionCard/PetitionCard";
 
 import S from "./StoryPetition.module.scss";

@@ -8,6 +8,10 @@
   height: 30vw;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    height: 30vh;
+  }
 }
 
 .head {
@@ -31,6 +35,9 @@
   flex-grow: 1;
   max-height: 20vw;
   overflow-y: scroll;
+  @media (max-width: 768px) {
+    max-height: none;
+  }
 }
 
 .send {
@@ -38,4 +45,8 @@
   display: flex;
   gap: 1vw;
   margin-top: auto;
+}
+
+.empty {
+  align-self: center;
 }

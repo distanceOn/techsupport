@@ -8,6 +8,11 @@
 
   cursor: pointer;
   transition: opacity 0.3s ease;
+  @media (max-width: 768px) {
+    padding: 0.2rem 0.5rem;
+    letter-spacing: 0;
+    font-size: 1rem;
+  }
   &_grey {
     background-color: #303034;
     color: #fff;

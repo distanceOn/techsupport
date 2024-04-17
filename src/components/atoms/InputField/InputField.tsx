@@ -1,13 +1,6 @@
+import { EventKeyboard } from "../../../utils/eventTypes";
 import S from "./InputField.module.scss";
-
-type InputFieldProps = {
-  placeholder?: string;
-  type: string;
-  value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onEnter?: () => void;
-  required?: boolean;
-};
+import { InputFieldProps } from "./types";
 
 export const InputField = ({
   type,
@@ -17,7 +10,7 @@ export const InputField = ({
   required = false,
   onEnter,
 }: InputFieldProps) => {
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (event: EventKeyboard) => {
     if (event.key === "Enter" && onEnter) {
       onEnter();
     }

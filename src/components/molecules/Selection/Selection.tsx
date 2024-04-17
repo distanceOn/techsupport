@@ -1,15 +1,8 @@
-import { ChangeEvent } from "react";
 import { InputField } from "../../atoms/InputField/InputField";
 import { Title } from "../../atoms/Title/Title";
 
 import S from "./Selection.module.scss";
-
-type SelectionProps = {
-  selectedTopic: string;
-  handleChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  customTopic: string;
-  handleCustomTopicChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+import { SelectionProps } from "./types";
 
 export const Selection = ({
   selectedTopic,
@@ -32,9 +25,9 @@ export const Selection = ({
           <option disabled value="default">
             Выберите тему
           </option>
-          <option value="Спорт">Спорт</option>
-          <option value="Игры">Игры</option>
-          <option value="Бизнес">Бизнес</option>
+          <option value="CarX Drift">CarX Drift</option>
+          <option value="CarX Store">CarX Store</option>
+          <option value="Xlab">Xlab</option>
           <option value="other">Другое</option>
         </select>
       </div>

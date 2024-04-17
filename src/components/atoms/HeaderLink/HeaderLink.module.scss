@@ -1,5 +1,8 @@
 .link {
   transition: color 0.3s ease;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 }
 
 .link:hover {

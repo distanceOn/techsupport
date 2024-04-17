@@ -28,6 +28,12 @@
   & > * {
     min-width: 0;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: 50vw;
+    width: 70vw;
+  }
 }
 
 .icon {
@@ -37,11 +43,18 @@
   * {
     fill: #ffaf03;
   }
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .stats {
   flex: 3 1 30%;
   min-width: 180px;
+  @media (max-width: 768px) {
+    min-width: none;
+    width: 100%;
+  }
 }
 
 .text {

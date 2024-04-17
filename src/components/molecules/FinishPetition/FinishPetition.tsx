@@ -1,19 +1,17 @@
-import { useAppDispatch } from "../../../app/reducers/reduxHooks";
-import { toFinishPetition } from "../../../app/reducers/dataSlice";
-
 import S from "./FinishPetition.module.scss";
 import { useNav } from "../../../hooks/useNav";
 import { useModal } from "../../../hooks/useModal";
 import { Title } from "../../atoms/Title/Title";
 import { Btn } from "../../atoms/Btn/Btn";
+import { useData } from "../../../hooks/useData";
 
 export const FinishPetition = () => {
-  const dispatch = useAppDispatch();
+  const { finishCurrentPetition } = useData();
   const { id } = useNav();
   const { toCloseModal } = useModal();
 
   const handleFinishPetition = () => {
-    dispatch(toFinishPetition(id));
+    finishCurrentPetition(id);
     toCloseModal();
   };
 

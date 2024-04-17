@@ -5,4 +5,9 @@
   & * {
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    padding-top: 5vw;
+    gap: 10vw;
+  }
 }

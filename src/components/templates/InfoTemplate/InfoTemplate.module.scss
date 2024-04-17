@@ -1,11 +1,12 @@
 .container {
   width: 80vw;
   display: grid;
-  grid-template-columns: 1fr 1fr; // Два равных столбца
+  grid-template-columns: 1fr 1fr;
   grid-gap: 2vw;
-
+  align-self: center;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    grid-gap: 5vw;
   }
 }
 

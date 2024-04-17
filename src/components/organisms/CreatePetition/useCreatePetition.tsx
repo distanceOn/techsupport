@@ -1,7 +1,14 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { useState } from "react";
 import { useModal } from "../../../hooks/useModal";
 import { useData } from "../../../hooks/useData";
-import { EventChangeInput, EventForm } from "../../../utils/eventTypes";
+import {
+  EventChangeInput,
+  EventChangeSelect,
+  EventChangeTextArea,
+  EventForm,
+} from "../../../utils/eventTypes";
+import { handleUploadImages } from "./utils";
+import { PetitionImagesType } from "../../../utils/types";
 
 export const useCreatePetition = () => {
   const { createNewPetition } = useData();
@@ -10,32 +17,17 @@ export const useCreatePetition = () => {
   const [selectedTopic, setSelectedTopic] = useState("default");
   const [customTopic, setCustomTopic] = useState("");
   const [text, setText] = useState("");
-  const [images, setImages] = useState<string[]>([]);
+  const [images, setImages] = useState<PetitionImagesType>([]);
+  const [error, setError] = useState("");
 
-  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = (event: EventChangeInput) => {
     if (event.target.files) {
-      const newFiles = Array.from(event.target.files).map((file) =>
-        URL.createObjectURL(file)
-      );
-
-      const updatedImages = [...images, ...newFiles];
-      while (updatedImages.length > 5) {
-        const removedUrl = updatedImages.shift();
-        if (removedUrl) {
-          URL.revokeObjectURL(removedUrl);
-        }
-      }
-
+      const updatedImages = handleUploadImages(event, images);
       setImages(updatedImages);
     }
   };
 
-  useEffect(() => {
-    console.log(images);
-  }, [images]);
-  const [error, setError] = useState("");
-
-  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handleSelectChange = (event: EventChangeSelect) => {
     const { value } = event.target;
 
     setSelectedTopic(value);
@@ -52,7 +44,7 @@ export const useCreatePetition = () => {
     setError("");
   };
 
-  const handleSetText = (event: ChangeEvent<HTMLTextAreaElement>) => {
+  const handleSetText = (event: EventChangeTextArea) => {
     setText(event.target.value);
     setError("");
   };
