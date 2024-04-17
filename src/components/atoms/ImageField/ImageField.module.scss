@@ -1,0 +1,24 @@
+.input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  width: 0;
+  height: 0;
+}
+
+.label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: azure;
+  color: rgb(28, 26, 26);
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: #8f8f8f;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}

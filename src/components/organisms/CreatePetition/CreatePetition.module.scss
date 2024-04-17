@@ -1,4 +1,30 @@
 .form {
+  position: relative;
+  min-width: 25vw;
+  padding: 50px 30px;
+  background: radial-gradient(86.66% 100% at 50% 0, #35313b 0, #19181b 100%);
+  border: 1px solid rgba(255, 185, 3, 0.2);
+  border-radius: 1.2rem;
+  box-shadow:
+    0.7px 1.3px 2.9px rgba(0, 0, 0, 0.003),
+    2.2px 4.2px 9.2px rgba(0, 0, 0, 0.013),
+    10px 19px 20px rgba(0, 0, 0, 0.08);
+  color: #fff;
   display: flex;
   flex-direction: column;
+  gap: 2vw;
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+}
+
+.error {
+  width: calc(100% - 60px);
+  text-align: center;
+  color: red;
+  position: absolute;
+  bottom: 1vw;
 }
