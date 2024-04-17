@@ -6,10 +6,7 @@ import { Logo } from "../../atoms/Logo/Logo";
 import { HeaderList } from "../../molecules/HeaderList/HeaderList";
 
 import S from "./Header.module.scss";
-const links = [
-  { to: "/", text: "Главная" },
-  { to: "/tickets", text: "История" },
-];
+import { links } from "./consts";
 
 export const Header = () => {
   const { isAuth } = useAppSelector((state) => state.auth);

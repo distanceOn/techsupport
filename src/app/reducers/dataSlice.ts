@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { ChatMessage, Petition } from "../../utils/types";
+import { getTime } from "../../utils/utils";
 
 type DataSlice = {
   petitions: Petition[];
@@ -71,7 +72,7 @@ export const dataSlice = createSlice({
     addPetition: (state, { payload }) => {
       const newPetition = {
         ...payload,
-        date: new Date().toLocaleDateString("ru-RU"),
+        date: getTime(),
         id: state.petitions.length + 1,
         finish: false,
         chat: [],

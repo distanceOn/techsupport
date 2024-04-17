@@ -1,7 +1,8 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useModal } from "../../../hooks/useModal";
 import { useData } from "../../../hooks/useData";
 import { EventChangeInput, EventForm } from "../../../utils/eventTypes";
+import { handleUploadImages } from "./utils";
 
 export const useCreatePetition = () => {
   const { createNewPetition } = useData();
@@ -11,29 +12,14 @@ export const useCreatePetition = () => {
   const [customTopic, setCustomTopic] = useState("");
   const [text, setText] = useState("");
   const [images, setImages] = useState<string[]>([]);
+  const [error, setError] = useState("");
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
-      const newFiles = Array.from(event.target.files).map((file) =>
-        URL.createObjectURL(file)
-      );
-
-      const updatedImages = [...images, ...newFiles];
-      while (updatedImages.length > 5) {
-        const removedUrl = updatedImages.shift();
-        if (removedUrl) {
-          URL.revokeObjectURL(removedUrl);
-        }
-      }
-
+      const updatedImages = handleUploadImages(event, images);
       setImages(updatedImages);
     }
   };
-
-  useEffect(() => {
-    console.log(images);
-  }, [images]);
-  const [error, setError] = useState("");
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
