@@ -1,29 +1,5 @@
 @import "fonts";
 
-:root {
-  --grey-dark: #19181b;
-  --grey-primary: #242227;
-}
-
-::-webkit-scrollbar {
-  width: 2px;
-  height: 2px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #ffffff;
-  border-radius: 4px;
-}
-
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #9a9595 transparent;
-}
-
 * {
   font-family: "Jost", sans-serif;
   box-sizing: border-box;
@@ -33,7 +9,7 @@
 }
 
 body {
-  background-color: var(--grey-primary);
+  background-color: #242227;
 }
 
 a {
