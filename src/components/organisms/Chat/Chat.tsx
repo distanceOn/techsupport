@@ -29,9 +29,15 @@ export const Chat = ({ id }: PetitionDefineType) => {
         <Title size="min" color="white">
           {`Чат обращения #${id}`}
         </Title>
-        <Btn color="green" onClick={openFinishPetitionModal} type="button">
-          Вопрос решен?
-        </Btn>
+        {petition.finish ? (
+          <Title color="white" size="small">
+            Обращение закрыто
+          </Title>
+        ) : (
+          <Btn color="green" onClick={openFinishPetitionModal} type="button">
+            Вопрос решен?
+          </Btn>
+        )}
       </div>
 
       <ul ref={scrollContainerRef} className={S.chat}>
@@ -41,20 +47,21 @@ export const Chat = ({ id }: PetitionDefineType) => {
           </li>
         ))}
       </ul>
-
-      <div className={S.send}>
-        <InputField
-          placeholder="Сообщение..."
-          type="text"
-          value={message}
-          onChange={handleTyping}
-          required
-          onEnter={handleSendMessage}
-        />
-        <Btn color="white" onClick={handleSendMessage} type="button">
-          Отправить
-        </Btn>
-      </div>
+      {!petition.finish && (
+        <div className={S.send}>
+          <InputField
+            placeholder="Сообщение..."
+            type="text"
+            value={message}
+            onChange={handleTyping}
+            required
+            onEnter={handleSendMessage}
+          />
+          <Btn color="white" onClick={handleSendMessage} type="button">
+            Отправить
+          </Btn>
+        </div>
+      )}
     </div>
   );
 };
