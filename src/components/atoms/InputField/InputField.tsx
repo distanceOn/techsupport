@@ -5,6 +5,7 @@ type InputFieldProps = {
   type: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onEnter?: () => void;
   required?: boolean;
 };
 
@@ -14,13 +15,23 @@ export const InputField = ({
   onChange,
   placeholder,
   required = false,
-}: InputFieldProps) => (
-  <input
-    className={S.input}
-    placeholder={placeholder}
-    type={type}
-    value={value}
-    onChange={onChange}
-    required={required}
-  />
-);
+  onEnter,
+}: InputFieldProps) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter" && onEnter) {
+      onEnter();
+    }
+  };
+
+  return (
+    <input
+      className={S.input}
+      placeholder={placeholder}
+      type={type}
+      value={value}
+      onChange={onChange}
+      required={required}
+      onKeyDown={handleKeyDown}
+    />
+  );
+};

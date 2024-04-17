@@ -7,23 +7,34 @@ import { Message } from "../../molecules/Message/Message";
 import { Title } from "../../atoms/Title/Title";
 import { InputField } from "../../atoms/InputField/InputField";
 
+import S from "./Chat.module.scss";
+import { useEffect, useRef } from "react";
+
 export const Chat = ({ id }: PetitionDefineType) => {
   const { openFinishPetitionModal } = useModal();
   const petition = usePetition({ id });
   const { message, handleTyping, handleSendMessage } = useChat({ id });
 
+  const scrollContainerRef = useRef<HTMLUListElement>(null);
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop =
+        scrollContainerRef.current.scrollHeight;
+    }
+  }, [petition?.chat]);
+
   return (
-    <div>
-      <div>
-        <Btn color="grey" onClick={openFinishPetitionModal} type="button">
+    <div className={S.container}>
+      <div className={S.head}>
+        <Title size="min" color="white">
+          {`Чат обращения #${id}`}
+        </Title>
+        <Btn color="green" onClick={openFinishPetitionModal} type="button">
           Вопрос решен?
         </Btn>
-        <Title size="min" color="white">
-          {`Чат обращения ${id}`}
-        </Title>
       </div>
 
-      <ul>
+      <ul ref={scrollContainerRef} className={S.chat}>
         {petition?.chat?.map(({ sender, message, timestamp }, index) => (
           <li key={timestamp + index}>
             <Message message={message} sender={sender} timestamp={timestamp} />
@@ -31,14 +42,16 @@ export const Chat = ({ id }: PetitionDefineType) => {
         ))}
       </ul>
 
-      <div>
+      <div className={S.send}>
         <InputField
+          placeholder="Сообщение..."
           type="text"
           value={message}
           onChange={handleTyping}
           required
+          onEnter={handleSendMessage}
         />
-        <Btn color="grey" onClick={handleSendMessage} type="button">
+        <Btn color="white" onClick={handleSendMessage} type="button">
           Отправить
         </Btn>
       </div>

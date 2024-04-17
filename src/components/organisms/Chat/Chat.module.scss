@@ -1,0 +1,37 @@
+.container {
+  border: 1px solid #a37a2c;
+  background-color: #303034;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vw;
+  border-bottom: 1px solid #a37a2c;
+}
+
+.chat {
+  border-radius: 12px;
+  border: 1px solid #959594;
+  padding: 1vw;
+  overflow: hidden;
+  background-color: #47474e;
+  margin: 1vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  max-height: 20vw;
+  overflow-y: scroll;
+}
+
+.send {
+  padding: 1vw;
+  display: flex;
+  gap: 1vw;
+}

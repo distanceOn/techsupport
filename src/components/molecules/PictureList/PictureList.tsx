@@ -1,6 +1,8 @@
 import { useAppSelector } from "../../../app/reducers/reduxHooks";
 import { Picture } from "../../atoms/Picture/Picture";
 
+import S from "./PictureList.module.scss";
+
 export const PictureList = ({
   id,
   pictures,
@@ -16,7 +18,7 @@ export const PictureList = ({
       : pictures;
 
   return (
-    <ul>
+    <ul className={S.list}>
       {totalPictures ? (
         totalPictures.map((picture, index) => (
           <li key={index}>
