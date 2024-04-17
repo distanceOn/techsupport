@@ -1,0 +1,20 @@
+.container {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr; // Два равных столбца
+  grid-gap: 2vw;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.chat {
+  border-radius: 12px;
+  overflow: hidden;
+}

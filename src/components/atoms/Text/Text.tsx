@@ -1,9 +1,8 @@
-import S from "./Text.module.scss";
+import { TextProps } from './types';
+import { getTotalTextClassName } from './utils';
 
-export const Text = ({ text }: { text: string }) => {
-  return (
-    <div className={S.text}>
-      <p>{text}</p>
-    </div>
-  );
+export const Text = ({ color, size, children }: TextProps) => {
+  const totalClassName = getTotalTextClassName({ color, size });
+
+  return <p className={totalClassName}>{children}</p>;
 };

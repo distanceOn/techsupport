@@ -29,11 +29,20 @@ export const CreatePetition = () => {
         customTopic={customTopic}
         handleCustomTopicChange={handleCustomTopicChange}
       />
-      <AreaField text={text} onChange={handleSetText} />
-      <PictureList pictures={images} />
-      <ImageField onChange={handleImageChange} />
-      {error && <div style={{ color: "red" }}>{error}</div>}
-      <Btn type="submit" text="Создать" onClick={() => {}} />
+      <AreaField
+        placeholder="Подробности обращения..."
+        text={text}
+        onChange={handleSetText}
+      />
+      <div className={S.upload}>
+        <PictureList pictures={images} />
+        <ImageField onChange={handleImageChange} />
+      </div>
+
+      {error && <div className={S.error}>{error}</div>}
+      <Btn color="green" type="submit" onClick={() => {}}>
+        Создать
+      </Btn>
     </form>
   );
 };

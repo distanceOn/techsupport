@@ -1,31 +1,37 @@
-import React from "react";
 import S from "./InputField.module.scss";
 
 type InputFieldProps = {
-  label: string;
+  placeholder?: string;
   type: string;
-  id: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onEnter?: () => void;
   required?: boolean;
 };
 
 export const InputField = ({
-  label,
   type,
-  id,
   value,
   onChange,
+  placeholder,
   required = false,
-}: InputFieldProps) => (
-  <div className={S.input}>
-    <label htmlFor={id}>{label}</label>
+  onEnter,
+}: InputFieldProps) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter" && onEnter) {
+      onEnter();
+    }
+  };
+
+  return (
     <input
+      className={S.input}
+      placeholder={placeholder}
       type={type}
-      id={id}
       value={value}
       onChange={onChange}
       required={required}
+      onKeyDown={handleKeyDown}
     />
-  </div>
-);
+  );
+};

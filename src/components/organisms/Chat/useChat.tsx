@@ -2,6 +2,7 @@ import { useState } from "react";
 import { addChatMessage } from "../../../app/reducers/dataSlice";
 import { useAppDispatch } from "../../../app/reducers/reduxHooks";
 import { PetitionDefineType } from "../../../utils/types";
+import { getTime } from "../../../utils/utils";
 
 export const useChat = ({ id }: PetitionDefineType) => {
   const dispatch = useAppDispatch();
@@ -18,7 +19,7 @@ export const useChat = ({ id }: PetitionDefineType) => {
         message: {
           sender: "you",
           message,
-          timestamp: new Date().toLocaleDateString("ru-RU"),
+          timestamp: getTime(),
         },
       })
     );

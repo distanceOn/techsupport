@@ -1,14 +1,10 @@
 .input {
-  margin-bottom: 20px;
-  & label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  & input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+  width: 100%;
+  height: 100%;
+  padding: 1rem 2.8rem 1rem 1.4rem;
+  border-radius: 1.2rem;
+  background-color: #19181b;
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+  color: #e5e5e5;
+  outline: none;
 }

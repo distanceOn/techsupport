@@ -16,8 +16,14 @@ export const PetitionCard = ({ data }: PetitionCardProps) => {
 
   return (
     <div onClick={goToPetition} className={S.card}>
-      <PetitionStats theme={theme} date={date} finish={finish} id={id} />
-      <Text text={text} />
+      <div className={S.stats}>
+        <PetitionStats theme={theme} date={date} finish={finish} id={id} />
+      </div>
+      <div className={S.text}>
+        <Text size="thin" color="gold">
+          {text}
+        </Text>
+      </div>
       <div className={S.icon}>
         <Icon type="arrow" />
       </div>

@@ -1,10 +1,39 @@
 @import "fonts";
+
+:root {
+  --grey-dark: #19181b;
+  --grey-primary: #242227;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #9a9595 transparent;
+}
+
 * {
   font-family: "Jost", sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   cursor: default;
+}
+
+body {
+  background-color: var(--grey-primary);
 }
 
 a {
@@ -24,18 +53,18 @@ button {
 
 @media (max-width: 768px) {
   html {
-    font-size: 50%; /* Уменьшение базового размера шрифта для малых экранов */
+    font-size: 50%;
   }
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 56.25%; /* Увеличение для планшетов */
+    font-size: 56.25%;
   }
 }
 
 @media (min-width: 1200px) {
   html {
-    font-size: 62.5%; /* Увеличение для десктопов */
+    font-size: 62.5%;
   }
 }

@@ -2,5 +2,13 @@ import { StoryPetition } from "../../components/organisms/StoryPetition/StoryPet
 import { DefaultTemplate } from "../../components/templates/DefaultTemplate/DefaultTemplate";
 
 export const TicketsPage = () => {
-  return <DefaultTemplate children={<StoryPetition />} />;
+  return (
+    <DefaultTemplate
+      children={
+        <div style={{ paddingTop: "1vw" }}>
+          <StoryPetition />
+        </div>
+      }
+    />
+  );
 };

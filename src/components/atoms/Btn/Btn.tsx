@@ -1,17 +1,12 @@
-import S from "./Btn.module.scss";
+import { ButtonProps } from "./types";
+import { getTotalBtnClassName } from "./utils";
 
-export const Btn = ({
-  text,
-  onClick,
-  type,
-}: {
-  text: string;
-  onClick: () => void;
-  type: "submit" | "reset" | "button";
-}) => {
+export const Btn = ({ children, onClick, type, color }: ButtonProps) => {
+  const className = getTotalBtnClassName({ color, type });
+
   return (
-    <button type={type} className={S.btn} onClick={onClick}>
-      {text}
+    <button type={type} className={className} onClick={onClick}>
+      {children}
     </button>
   );
 };

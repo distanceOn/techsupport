@@ -1,0 +1,27 @@
+.area {
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1.2rem;
+  background-color: #19181b;
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+  color: #e5e5e5;
+  outline: none;
+  resize: none;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.counter {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1.4rem;
+  color: #e5e5e5;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+}

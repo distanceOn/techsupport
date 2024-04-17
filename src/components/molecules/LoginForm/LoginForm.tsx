@@ -19,23 +19,28 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   onLoginSubmit,
 }) => (
   <form className={S.form} onSubmit={onLoginSubmit}>
-    <Title level={2} text="Авторизация" />
+    <div className={S.title}>
+      <Title color="white" size="small">
+        Вход в аккаунт
+      </Title>
+    </div>
+
     <InputField
-      label="Логин"
+      placeholder="admin"
       type="text"
-      id="login"
       value={username}
       onChange={handleChangeUsername}
       required
     />
     <InputField
-      label="Пароль"
+      placeholder="*****"
       type="password"
-      id="password"
       value={password}
       onChange={handleChangePassword}
       required
     />
-    <Btn text="Войти" type="submit" onClick={() => {}} />
+    <Btn color="white" type="submit" onClick={() => {}}>
+      Войти
+    </Btn>
   </form>
 );

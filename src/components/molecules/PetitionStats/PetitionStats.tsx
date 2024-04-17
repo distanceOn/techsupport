@@ -15,10 +15,18 @@ export const PetitionStats = ({
   date,
 }: PetitionStatsProps) => {
   return (
-    <div className={`${S.info} ${finish ? S.finish_true : S.finish_false}`}>
-      <Title text={id} level={4} />
-      <Title text={theme} level={3} />
-      <Title text={date} level={4} />
+    <div className={`${S.finish} ${finish ? S.finish_true : S.finish_false}`}>
+      <div className={S.head}>
+        <Title color="white" size="min">
+          #{id}
+        </Title>
+        <Title color="white" size="small">
+          {date}
+        </Title>
+      </div>
+      <Title color="white" size="small">
+        {theme}
+      </Title>
     </div>
   );
 };

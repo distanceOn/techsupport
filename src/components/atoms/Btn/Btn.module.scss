@@ -1,8 +1,6 @@
 .btn {
-  background-color: #303034;
   border: none;
   border-radius: 0.6rem;
-  color: #fff;
   display: block;
   letter-spacing: 0.02rem;
 
@@ -10,6 +8,18 @@
 
   cursor: pointer;
   transition: opacity 0.3s ease;
+  &_grey {
+    background-color: #303034;
+    color: #fff;
+  }
+  &_white {
+    background-color: #fff;
+    color: #000;
+  }
+  &_green {
+    background-color: rgba(0, 241, 105, 0.2);
+    color: #00f169;
+  }
 }
 
 .btn:hover {
