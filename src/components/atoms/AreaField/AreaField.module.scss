@@ -1,14 +1,27 @@
 .area {
-  height: fit-content;
-  padding: 1rem 2.8rem 1rem 1.4rem;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
   border-radius: 1.2rem;
   background-color: #19181b;
   border: 1px solid hsla(0, 0%, 100%, 0.5);
   color: #e5e5e5;
   outline: none;
-  cursor: pointer;
-  appearance: none;
-  transition:
-    border-color 0.3s,
-    box-shadow 0.3s;
+  resize: none;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.counter {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1.4rem;
+  color: #e5e5e5;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
 }
